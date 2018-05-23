@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="290.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoii.design.administrator.warehouse.data.brand.list.FXMLListBrandController">
+<AnchorPane id="AnchorPane" prefHeight="290.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoii.design.administrator.warehouse.data.color.list.FXMLListColorController">
     <children>
       <TextField layoutX="10.0" layoutY="8.0" />
       <Button layoutX="161.0" layoutY="8.0" mnemonicParsing="false" text="Procurar" />
