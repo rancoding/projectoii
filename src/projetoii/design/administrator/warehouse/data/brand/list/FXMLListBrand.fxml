@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="290.0" prefWidth="581.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="projetoii.design.administrator.warehouse.data.brand.list.FXMLListBrandController">
+<AnchorPane id="AnchorPane" prefHeight="290.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoii.design.administrator.warehouse.data.brand.list.FXMLListBrandController">
     <children>
       <TextField layoutX="10.0" layoutY="8.0" />
       <Button layoutX="161.0" layoutY="8.0" mnemonicParsing="false" text="Procurar" />
@@ -16,9 +16,8 @@
       <TableView layoutX="10.0" layoutY="45.0" prefHeight="235.0" prefWidth="561.0">
          <columns>
             <TableColumn prefWidth="25.0" />
-            <TableColumn prefWidth="150.0" text="Nome" />
-            <TableColumn prefWidth="350.0" text="Descrição" />
-            <TableColumn prefWidth="35.0">
+            <TableColumn prefWidth="498.0" text="Nome" />
+            <TableColumn minWidth="0.0" prefWidth="37.0">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
