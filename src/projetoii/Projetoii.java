@@ -28,21 +28,15 @@ public class Projetoii extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/add/FXMLAddProduct.fxml"));
+
+        //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/category/list/FXMLListCategory.fxml"));
+
         
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        
-        List<Funcionario> employeeList = session.createCriteria(Funcionario.class).list();
-        for(Funcionario employee : employeeList)
-        {
-            System.out.println(employee.getNome());
-        }
-        
-        session.close();
     }
 
     /**
