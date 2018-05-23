@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="350.0" prefWidth="706.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="projetoii.design.administrator.shop.menu.top.FXMLShopTopMenuController">
+    <top>
+      <Pane layoutX="-1.0" prefHeight="60.0" prefWidth="706.0" style="-fx-background-color: #2a2a2a;" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="lojaBtn" fx:id="lojaButton" focusTraversable="false" mnemonicParsing="false" prefHeight="59.0" prefWidth="175.0" stylesheets="@css/button/shopTopMenuButton.css" text="LOJA" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button id="funcionariosBtn" fx:id="funcionariosButton" focusTraversable="false" layoutX="177.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="175.0" stylesheets="@css/button/shopTopMenuButton.css" text="FUNCIONÁRIOS" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button id="reposicoesBtn" fx:id="reposicoesButton" focusTraversable="false" layoutX="354.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="175.0" stylesheets="@css/button/shopTopMenuButton.css" text="REPOSIÇÕES" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button id="vendasBtn" fx:id="vendasButton" focusTraversable="false" layoutX="531.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="175.0" stylesheets="@css/button/shopTopMenuButton.css" text="VENDAS" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </top>
+</BorderPane>

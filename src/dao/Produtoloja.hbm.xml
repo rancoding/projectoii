@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2018 12:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.Produtoloja" table="PRODUTOLOJA" schema="PROJECTO" optimistic-lock="version">
+        <composite-id name="id" class="dao.ProdutolojaId">
+            <key-property name="codbarras" type="long">
+                <column name="CODBARRAS" precision="10" scale="0" />
+            </key-property>
+            <key-property name="idloja" type="byte">
+                <column name="IDLOJA" precision="2" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="desconto" class="dao.Desconto" fetch="select">
+            <column name="IDDESCONTO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="loja" class="dao.Loja" update="false" insert="false" fetch="select">
+            <column name="IDLOJA" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="produto" class="dao.Produto" update="false" insert="false" fetch="select">
+            <column name="CODBARRAS" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="quantidade" type="short">
+            <column name="QUANTIDADE" precision="4" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

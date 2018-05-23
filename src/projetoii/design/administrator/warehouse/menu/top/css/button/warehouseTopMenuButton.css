@@ -1,0 +1,87 @@
+#armazemBtn
+{
+    -fx-background-color: #2d2d2f;
+    -fx-background-radius: 0em;
+}
+
+#armazemBtn:hover
+{
+    -fx-background-color: #212123;
+}
+
+#armazemBtn:pressed
+{
+    -fx-background-color: #1c1c1e;
+}
+
+#armazemBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+#funcionariosBtn
+{
+    -fx-background-color: #2d2d2f;
+    -fx-background-radius: 0em;
+}
+
+#funcionariosBtn:hover
+{
+    -fx-background-color: #212123;
+}
+
+#funcionariosBtn:pressed
+{
+    -fx-background-color: #1c1c1e;
+}
+
+#funcionariosBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+#reposicoesBtn
+{
+    -fx-background-color: #2d2d2f;
+    -fx-background-radius: 0em;
+}
+
+#reposicoesBtn:hover
+{
+    -fx-background-color: #212123;
+}
+
+#reposicoesBtn:pressed
+{
+    -fx-background-color: #1c1c1e;
+}
+
+#reposicoesBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+#caixasBtn
+{
+    -fx-background-color: #2d2d2f;
+    -fx-background-radius: 0em;
+}
+
+#caixasBtn:hover
+{
+    -fx-background-color: #212123;
+}
+
+#caixasBtn:pressed
+{
+    -fx-background-color: #1c1c1e;
+}
+
+#caixasBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}

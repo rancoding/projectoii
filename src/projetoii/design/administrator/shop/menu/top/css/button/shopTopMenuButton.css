@@ -1,0 +1,87 @@
+#lojaBtn
+{
+    -fx-background-color: #2d2d2f;
+    -fx-background-radius: 0em;
+}
+
+#lojaBtn:hover
+{
+    -fx-background-color: #212123;
+}
+
+#lojaBtn:pressed
+{
+    -fx-background-color: #1c1c1e;
+}
+
+#lojaBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+#funcionariosBtn
+{
+    -fx-background-color: #2d2d2f;
+    -fx-background-radius: 0em;
+}
+
+#funcionariosBtn:hover
+{
+    -fx-background-color: #212123;
+}
+
+#funcionariosBtn:pressed
+{
+    -fx-background-color: #1c1c1e;
+}
+
+#funcionariosBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+#reposicoesBtn
+{
+    -fx-background-color: #2d2d2f;
+    -fx-background-radius: 0em;
+}
+
+#reposicoesBtn:hover
+{
+    -fx-background-color: #212123;
+}
+
+#reposicoesBtn:pressed
+{
+    -fx-background-color: #1c1c1e;
+}
+
+#reposicoesBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+#vendasBtn
+{
+    -fx-background-color: #2d2d2f;
+    -fx-background-radius: 0em;
+}
+
+#vendasBtn:hover
+{
+    -fx-background-color: #212123;
+}
+
+#vendasBtn:pressed
+{
+    -fx-background-color: #1c1c1e;
+}
+
+#vendasBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}

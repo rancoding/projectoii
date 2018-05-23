@@ -1,0 +1,111 @@
+/* Botão dos Produtos */
+#produtosBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#produtosBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#produtosBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#produtosBtn:focused
+{
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #039ed3;
+}
+
+/* Botão das Categorias */
+#categoriasBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#categoriasBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#categoriasBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#categoriasBtn:focused
+{
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #039ed3;
+}
+
+#marcasBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#marcasBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#marcasBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#marcasBtn:focused
+{
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #039ed3;
+}
+
+#tamanhosBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#tamanhosBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#tamanhosBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#tamanhosBtn:focused
+{
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #039ed3;
+}
+
+#coresBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#coresBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#coresBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#coresBtn:focused
+{
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #039ed3;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2018 12:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.Horario" table="HORARIO" schema="PROJECTO" optimistic-lock="version">
+        <id name="idhorario" type="big_decimal">
+            <column name="IDHORARIO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="horaprimeiraentrada" type="date">
+            <column name="HORAPRIMEIRAENTRADA" length="7" not-null="true" />
+        </property>
+        <property name="horaprimeirasaida" type="date">
+            <column name="HORAPRIMEIRASAIDA" length="7" not-null="true" />
+        </property>
+        <property name="horasegundaentrada" type="date">
+            <column name="HORASEGUNDAENTRADA" length="7" not-null="true" />
+        </property>
+        <property name="horasegundasaida" type="date">
+            <column name="HORASEGUNDASAIDA" length="7" not-null="true" />
+        </property>
+        <set name="funcionarios" table="FUNCIONARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDHORARIO" precision="22" scale="0" />
+            </key>
+            <one-to-many class="dao.Funcionario" />
+        </set>
+        <set name="pontohorarios" table="PONTOHORARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDHORARIO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Pontohorario" />
+        </set>
+    </class>
+</hibernate-mapping>

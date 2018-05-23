@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2018 12:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.Produto" table="PRODUTO" schema="PROJECTO" optimistic-lock="version">
+        <id name="codbarras" type="long">
+            <column name="CODBARRAS" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cor" class="dao.Cor" fetch="select">
+            <column name="IDCOR" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="marca" class="dao.Marca" fetch="select">
+            <column name="IDMARCA" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tamanho" class="dao.Tamanho" fetch="select">
+            <column name="IDTAMANHO" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoproduto" class="dao.Tipoproduto" fetch="select">
+            <column name="IDTIPOPRODUTO" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="50" not-null="true" />
+        </property>
+        <property name="precocompra" type="long">
+            <column name="PRECOCOMPRA" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="precovenda" type="long">
+            <column name="PRECOVENDA" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="genero" type="char">
+            <column name="GENERO" length="1" not-null="true" />
+        </property>
+        <set name="produtovendas" table="PRODUTOVENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODBARRAS" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Produtovenda" />
+        </set>
+        <set name="produtolojas" table="PRODUTOLOJA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODBARRAS" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Produtoloja" />
+        </set>
+        <set name="produtoentregas" table="PRODUTOENTREGA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODBARRAS" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Produtoentrega" />
+        </set>
+        <set name="caixas" table="CAIXA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODBARRAS" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Caixa" />
+        </set>
+    </class>
+</hibernate-mapping>

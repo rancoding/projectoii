@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2018 12:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.Caixa" table="CAIXA" schema="PROJECTO" optimistic-lock="version">
+        <composite-id name="id" class="dao.CaixaId">
+            <key-property name="idarmazem" type="byte">
+                <column name="IDARMAZEM" precision="2" scale="0" />
+            </key-property>
+            <key-property name="codbarras" type="long">
+                <column name="CODBARRAS" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="armazem" class="dao.Armazem" update="false" insert="false" fetch="select">
+            <column name="IDARMAZEM" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="produto" class="dao.Produto" update="false" insert="false" fetch="select">
+            <column name="CODBARRAS" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="idcaixa" type="short">
+            <column name="IDCAIXA" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="quantidade" type="short">
+            <column name="QUANTIDADE" precision="4" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

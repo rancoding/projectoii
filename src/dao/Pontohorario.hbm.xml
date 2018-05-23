@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2018 12:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.Pontohorario" table="PONTOHORARIO" schema="PROJECTO" optimistic-lock="version">
+        <composite-id name="id" class="dao.PontohorarioId">
+            <key-property name="idpontohorario" type="big_decimal">
+                <column name="IDPONTOHORARIO" precision="22" scale="0" />
+            </key-property>
+            <key-property name="data" type="date">
+                <column name="DATA" length="7" />
+            </key-property>
+            <key-property name="idfuncionario" type="big_decimal">
+                <column name="IDFUNCIONARIO" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="funcionario" class="dao.Funcionario" update="false" insert="false" fetch="select">
+            <column name="IDFUNCIONARIO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="horario" class="dao.Horario" fetch="select">
+            <column name="IDHORARIO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="diasemana" type="boolean">
+            <column name="DIASEMANA" precision="1" scale="0" not-null="true" />
+        </property>
+        <set name="pontosentradas" table="PONTOSENTRADA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPONTOHORARIO" precision="22" scale="0" not-null="true" />
+                <column name="HORA" length="7" not-null="true" />
+                <column name="IDENTRADA" precision="22" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="dao.Pontosentrada" />
+        </set>
+        <set name="pontossaidas" table="PONTOSSAIDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPONTOHORARIO" precision="22" scale="0" not-null="true" />
+                <column name="HORA" length="7" not-null="true" />
+                <column name="IDPONTOSSAIDA" precision="22" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="dao.Pontossaida" />
+        </set>
+    </class>
+</hibernate-mapping>

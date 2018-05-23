@@ -1,0 +1,113 @@
+#diarioBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#diarioBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#diarioBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#diarioBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+
+#semanalBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#semanalBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#semanalBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#semanalBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+
+#mensalBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#mensalBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#mensalBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#mensalBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+
+#anualBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#anualBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#anualBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#anualBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}
+
+
+#totalBtn
+{
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 0em;
+}
+
+#totalBtn:hover
+{
+    -fx-background-color: #EFEFEF;
+}
+
+#totalBtn:pressed
+{
+    -fx-background-color: #F7F7F7;
+}
+
+#totalBtn:focused
+{
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #039ed3;
+}

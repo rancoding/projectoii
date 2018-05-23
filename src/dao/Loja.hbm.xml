@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2018 12:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.Loja" table="LOJA" schema="PROJECTO" optimistic-lock="version">
+        <id name="idloja" type="byte">
+            <column name="IDLOJA" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="localidade" class="dao.Localidade" fetch="select">
+            <column name="IDLOCALIDADE" precision="4" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="NOME" length="25" not-null="true" />
+        </property>
+        <set name="produtolojas" table="PRODUTOLOJA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDLOJA" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Produtoloja" />
+        </set>
+        <set name="entregas" table="ENTREGA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDLOJA" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Entrega" />
+        </set>
+        <set name="vendas" table="VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDLOJA" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Venda" />
+        </set>
+    </class>
+</hibernate-mapping>

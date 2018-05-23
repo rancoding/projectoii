@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2018 12:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.Funcionario" table="FUNCIONARIO" schema="PROJECTO" optimistic-lock="version">
+        <id name="idfuncionario" type="byte">
+            <column name="IDFUNCIONARIO" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="horario" class="dao.Horario" fetch="select">
+            <column name="IDHORARIO" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="localtrabalho" class="dao.Localtrabalho" fetch="select">
+            <column name="IDLOCALTRABALHO" precision="2" scale="0" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="NOME" length="25" not-null="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="USERNAME" length="20" not-null="true" />
+        </property>
+        <property name="password" type="short">
+            <column name="PASSWORD" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="datanascimento" type="date">
+            <column name="DATANASCIMENTO" length="7" not-null="true" />
+        </property>
+        <property name="sexo" type="char">
+            <column name="SEXO" length="1" not-null="true" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="ACTIVO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="tipo" type="boolean">
+            <column name="TIPO" precision="1" scale="0" not-null="true" />
+        </property>
+        <set name="entregasForIdfuncionarioentrega" table="ENTREGA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDFUNCIONARIOENTREGA" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Entrega" />
+        </set>
+        <set name="entregasForIdfuncionariorecebe" table="ENTREGA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDFUNCIONARIORECEBE" precision="2" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Entrega" />
+        </set>
+        <set name="vendas" table="VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDFUNCIONARIO" precision="3" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Venda" />
+        </set>
+        <set name="pontohorarios" table="PONTOHORARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDFUNCIONARIO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dao.Pontohorario" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2018 12:39:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.Localtrabalho" table="LOCALTRABALHO" schema="PROJECTO" optimistic-lock="version">
+        <id name="idlocaltrabalho" type="byte">
+            <column name="IDLOCALTRABALHO" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <set name="funcionarios" table="FUNCIONARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDLOCALTRABALHO" precision="2" scale="0" />
+            </key>
+            <one-to-many class="dao.Funcionario" />
+        </set>
+    </class>
+</hibernate-mapping>
