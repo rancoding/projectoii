@@ -127,6 +127,7 @@ public class FXMLEditCategoryController implements Initializable {
         if(categoryName.getText().isEmpty())
         {
             editCategoryNameButton.setDisable(true);
+            errorLabel.setText("");
         }
         else
         {

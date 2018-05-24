@@ -15,7 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import projetoii.design.administrator.warehouse.data.category.list.FXMLListCategoryController;
 
@@ -102,6 +101,7 @@ public class FXMLAddCategoryController implements Initializable {
         if(categoryName.getText().isEmpty())
         {
             addCategoryButton.setDisable(true);
+            errorLabel.setText("");
         }
         else
         {

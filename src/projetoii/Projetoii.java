@@ -32,9 +32,9 @@ public class Projetoii extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/add/FXMLAddProduct.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/add/FXMLAddProduct.fxml"));
 
-        //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/category/list/FXMLListCategory.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/size/list/FXMLListSize.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);

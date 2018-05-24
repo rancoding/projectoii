@@ -35,6 +35,7 @@ public class FXMLListCategoryController implements Initializable {
 
     /* Variables used for setting up the table content */
     @FXML public TableView<Tipoproduto> categoryTable;
+    @FXML private TableColumn<Tipoproduto, Byte> idColumn;
     @FXML private TableColumn<Tipoproduto, String> nameColumn;
     @FXML private TableColumn<Tipoproduto, String> editColumn;
     private ObservableList<Tipoproduto> productTypeObservableList;
@@ -69,6 +70,7 @@ public class FXMLListCategoryController implements Initializable {
     private void initializeTable(List<Tipoproduto> productTypeList)
     {
         /* Sets column variables to use entity info, empty for a button creation */
+        this.idColumn.setCellValueFactory(new PropertyValueFactory<>("idtipoproduto"));
         this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         this.editColumn.setCellValueFactory(new PropertyValueFactory<>(""));
         
@@ -216,7 +218,7 @@ public class FXMLListCategoryController implements Initializable {
         }
     }
     
-    /* * Searches for categories when a key is released * */
+    /* * Searches for categories when a key is pressed * */
     @FXML
     void getSearchList()
     {
