@@ -9,19 +9,13 @@ import dao.Tipoproduto;
 import hibernate.HibernateUtil;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -64,22 +58,22 @@ public class FXMLEditCategoryController implements Initializable {
         setField();
     }
     
-    public void setListCategoryController(FXMLListCategoryController listCategoryController)
+    private void setListCategoryController(FXMLListCategoryController listCategoryController)
     {
         this.listCategoryController = listCategoryController;
     }
     
-    public void setProductTypeList(ObservableList<Tipoproduto> productTypeList)
+    private void setProductTypeList(ObservableList<Tipoproduto> productTypeList)
     {
         this.productTypeList = productTypeList;
     }
     
-    public void setProductType(Tipoproduto productType)
+    private void setProductType(Tipoproduto productType)
     {
         this.productType = productType;
     }
     
-    public void setField()
+    private void setField()
     {
         this.categoryName.setText(productType.getNome());
     }
@@ -93,9 +87,7 @@ public class FXMLEditCategoryController implements Initializable {
         updateCategory();
         
         this.listCategoryController.categoryTable.refresh();
-        Node node = (Node)event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.close();
+        closeStage(event);
     }
     
     /* * Checks if the category name typed in the text field already exists * */
@@ -132,13 +124,29 @@ public class FXMLEditCategoryController implements Initializable {
         String editedTypeName = StringUtils.stripAccents(categoryName.getText().replaceAll(nonCharacters, "").toLowerCase());
         String typeName = StringUtils.stripAccents(productType.getNome().replaceAll(nonCharacters, "").toLowerCase());
         
-        if(!(editedTypeName.equals(typeName)))
+        if(categoryName.getText().isEmpty())
         {
-            boolean exists = checkIfNameExists(editedTypeName, nonCharacters);
-            
-            if(exists)
+            editCategoryNameButton.setDisable(true);
+        }
+        else
+        {
+            if(!(editedTypeName.equals(typeName)))
             {
-                disableEditButtonAndShowError("Tipo de producto já existe");
+                boolean exists = checkIfNameExists(editedTypeName, nonCharacters);
+
+                if(exists)
+                {
+                    disableEditButtonAndShowError("Tipo de producto já existe");
+                }
+                else
+                {
+                    if(!(editCategoryNameButton.getText().isEmpty()))
+                    {
+                        errorLabel.setText("");
+                    }
+
+                    editCategoryNameButton.setDisable(false);
+                }
             }
             else
             {
@@ -146,18 +154,9 @@ public class FXMLEditCategoryController implements Initializable {
                 {
                     errorLabel.setText("");
                 }
-                
-                editCategoryNameButton.setDisable(false);
+
+                editCategoryNameButton.setDisable(true);
             }
-        }
-        else
-        {
-            if(!(editCategoryNameButton.getText().isEmpty()))
-            {
-                errorLabel.setText("");
-            }
-            
-            editCategoryNameButton.setDisable(true);
         }
     }
     
@@ -177,4 +176,17 @@ public class FXMLEditCategoryController implements Initializable {
         session.close();
     }
     
+    /* * Closes the stage on cancel button click * */
+    @FXML void onCancelClick(ActionEvent event)
+    {
+        closeStage(event);
+    }
+    
+    /* * Closes current window * */
+    private void closeStage(ActionEvent event)
+    {
+        Node node = (Node)event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+    }
 }

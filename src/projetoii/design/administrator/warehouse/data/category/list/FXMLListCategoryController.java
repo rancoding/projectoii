@@ -55,6 +55,11 @@ public class FXMLListCategoryController implements Initializable {
         {
             initializeTable(productTypeList);
         }
+        else
+        {
+            productTypeList = new ArrayList<Tipoproduto>();
+            initializeTable(productTypeList);
+        }
         
         /* Closes the database connection */
         session.close();
@@ -174,6 +179,10 @@ public class FXMLListCategoryController implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(controller.getResource(fileName));
             Parent root = (Parent) loader.load();
+            
+            FXMLAddCategoryController addController = (FXMLAddCategoryController) loader.getController();
+            addController.initializeOnControllerCall(this, productTypeObservableList);
+            
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(root));
@@ -245,7 +254,7 @@ public class FXMLListCategoryController implements Initializable {
     }
     
     /* * Sets new table values * */
-    private void setSearchedTableValues(List<Tipoproduto> typeList)
+    public void setSearchedTableValues(List<Tipoproduto> typeList)
     {
         ObservableList<Tipoproduto> typeObservableList;
         typeObservableList = FXCollections.observableArrayList(typeList);
