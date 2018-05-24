@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import projetoii.design.administrator.warehouse.data.category.list.FXMLListCategoryController;
 import projetoii.design.administrator.warehouse.data.color.list.FXMLListColorController;
 
 public class FXMLAddColorController implements Initializable {

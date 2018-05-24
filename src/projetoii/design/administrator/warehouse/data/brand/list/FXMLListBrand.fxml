@@ -10,14 +10,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="290.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoii.design.administrator.warehouse.data.brand.list.FXMLListBrandController">
     <children>
-      <TextField layoutX="10.0" layoutY="8.0" />
-      <Button layoutX="161.0" layoutY="8.0" mnemonicParsing="false" text="Procurar" />
-      <Button layoutX="547.0" layoutY="8.0" mnemonicParsing="false" text="+" />
-      <TableView layoutX="10.0" layoutY="45.0" prefHeight="235.0" prefWidth="561.0">
+      <TextField fx:id="searchBrandTextField" layoutX="10.0" layoutY="8.0" onKeyPressed="#getSearchList" onKeyReleased="#getSearchList" prefWidth="200.0" promptText="Pesquisar" />
+      <Button layoutX="547.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAddButtonAction" text="+" />
+      <TableView fx:id="brandTable" layoutX="10.0" layoutY="45.0" prefHeight="235.0" prefWidth="561.0">
          <columns>
-            <TableColumn prefWidth="25.0" />
-            <TableColumn prefWidth="498.0" text="Nome" />
-            <TableColumn minWidth="0.0" prefWidth="37.0">
+            <TableColumn fx:id="idColumn" prefWidth="40.0" text="#" />
+            <TableColumn fx:id="nameColumn" prefWidth="458.0" text="Nome" />
+            <TableColumn fx:id="editColumn" minWidth="0.0" prefWidth="49.0">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -55,9 +55,11 @@ public class FXMLAddSizeController implements Initializable {
     /* * Adds a new size and updates the database * */
     @FXML void onAddClick(ActionEvent event)
     {
+        String nonCharacters = "[^\\p{L}\\p{Nd}]";
+        
         Tamanho newSize = new Tamanho();
         newSize.setIdtamanho((byte) (sizeList.size() + 1));
-        newSize.setDescricao(sizeName.getText().toUpperCase());
+        newSize.setDescricao(sizeName.getText().toUpperCase().replaceAll(nonCharacters, ""));
         
         sizeList.add(newSize);
         insertSize(newSize);

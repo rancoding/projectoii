@@ -34,7 +34,7 @@ public class Projetoii extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/add/FXMLAddProduct.fxml"));
 
-        //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/color/list/FXMLListColor.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/category/list/FXMLListCategory.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -55,9 +55,11 @@ public class FXMLAddCategoryController implements Initializable {
     /* * Adds a new category and updates the database * */
     @FXML void onAddClick(ActionEvent event)
     {
+        String nonCharacters = "[^\\p{L}\\p{Nd}]";
+        
         Tipoproduto newType = new Tipoproduto();
         newType.setIdtipoproduto((byte) (productTypeList.size() + 1));
-        newType.setNome(StringUtils.capitalize(categoryName.getText()));
+        newType.setNome(StringUtils.capitalize(categoryName.getText()).replaceAll(nonCharacters, ""));
         
         productTypeList.add(newType);
         insertCategory(newType);
