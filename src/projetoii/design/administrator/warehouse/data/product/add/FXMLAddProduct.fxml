@@ -34,10 +34,9 @@
          </children>
       </Pane>
       <ComboBox layoutX="530.0" layoutY="10.0" prefWidth="60.0" promptText="PT" />
-      <Button layoutX="274.0" layoutY="78.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="27.0" text="+" />
-      <Button layoutX="274.0" layoutY="113.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="27.0" text="+" />
-      <Button layoutX="274.0" layoutY="148.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="27.0" text="+" />
-      <Button layoutX="274.0" layoutY="183.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="27.0" text="+" />
-      <Button layoutX="560.0" layoutY="113.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="27.0" text="+" />
+      <Button layoutX="274.0" layoutY="78.0" mnemonicParsing="false" onAction="#changetoAddBrand" prefHeight="17.0" prefWidth="27.0" text="+" />
+      <Button layoutX="274.0" layoutY="113.0" mnemonicParsing="false" onAction="#changetoAddCategory" prefHeight="17.0" prefWidth="27.0" text="+" />
+      <Button layoutX="274.0" layoutY="148.0" mnemonicParsing="false" onAction="#changetoAddSize" prefHeight="17.0" prefWidth="27.0" text="+" />
+      <Button layoutX="560.0" layoutY="113.0" mnemonicParsing="false" onAction="#changetoAddColor" prefHeight="17.0" prefWidth="27.0" text="+" />
    </children>
 </AnchorPane>
