@@ -3,6 +3,7 @@ package projetoii.design.administrator.warehouse.data.category.list;
 import dao.Tipoproduto;
 import hibernate.HibernateUtil;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -19,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -37,6 +39,8 @@ public class FXMLListCategoryController implements Initializable {
     @FXML private TableColumn<Tipoproduto, String> nameColumn;
     @FXML private TableColumn<Tipoproduto, String> editColumn;
     private ObservableList<Tipoproduto> productTypeObservableList;
+    
+    @FXML private TextField searchCategoryTextField;
     
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -194,6 +198,26 @@ public class FXMLListCategoryController implements Initializable {
         catch(Exception e)
         {
             System.out.println(message);
+        }
+    }
+    
+    // Searches categories
+    private void getSearchList()
+    {
+        if(searchCategoryTextField.getText().length() >= 3)
+        {
+            List<Tipoproduto> typeList = new ArrayList<>();
+
+            for(Tipoproduto type : productTypeObservableList)
+            {
+                String searchNameString = type.getNome().replaceAll("\\s+", "");
+                String searchIDString = String.valueOf(type.getIdtipoproduto());
+                System.out.println(searchIDString + " " + searchNameString);
+            }
+        }
+        else
+        {
+            
         }
     }
 }
