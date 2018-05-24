@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,26 +25,27 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import org.hibernate.Session;
+import org.apache.commons.lang3.StringUtils;
 import projetoii.design.administrator.warehouse.data.category.add.FXMLAddCategoryController;
 import projetoii.design.administrator.warehouse.data.category.edit.FXMLEditCategoryController;
 
 public class FXMLListCategoryController implements Initializable {
 
-    // FXML Table Variables
-    @FXML private TableView<Tipoproduto> categoryTable;
+    /* Variables used for setting up the table content */
+    @FXML public TableView<Tipoproduto> categoryTable;
     @FXML private TableColumn<Tipoproduto, String> nameColumn;
     @FXML private TableColumn<Tipoproduto, String> editColumn;
     private ObservableList<Tipoproduto> productTypeObservableList;
     
+    /* Text field used to search categories on the table, updating as it searches */
     @FXML private TextField searchCategoryTextField;
     
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        /* Initializes and opens the database session */
+        /* Initializes and opens the database session using hibernate */
         Session session = HibernateUtil.getSessionFactory().openSession();
         
         /* Retrieves all database product types to an arraylist and initializes the table values if it is not empty */
@@ -60,26 +60,30 @@ public class FXMLListCategoryController implements Initializable {
         session.close();
     }
     
-    // Initializes table values
-    // - Set a cell value factory for each column
-    // - Creates a new image with an edit icon
-    // - Sets the cell factory for the edit column by calling the getButtonCell function
-    // - Adds a list of product types of the observable list
-    // - Sets the table items with the observable list product types
+    /** Initializes all table content for the first time **/
     private void initializeTable(List<Tipoproduto> productTypeList)
     {
+        /* Sets column variables to use entity info, empty for a button creation */
         this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         this.editColumn.setCellValueFactory(new PropertyValueFactory<>(""));
         
+        /* Sets images for all row buttons and sets the buttons up */
         Image image = new Image(getClass().getResourceAsStream("image/edit.png"));
         Image imageHover = new Image(getClass().getResourceAsStream("image/edit_hover.png"));
         editColumn.setCellFactory(getButtonCell(image, imageHover));
         
+        /* Sets the table content */
         productTypeObservableList = FXCollections.observableArrayList(productTypeList);
+        setTableItems(productTypeObservableList);
+    }
+    
+    /* * Sets the table items to be the same as the observable list items * */
+    private void setTableItems(ObservableList<Tipoproduto> productTypeObservableList)
+    {
         this.categoryTable.setItems(productTypeObservableList);
     }
     
-    // Creates a button and its set on action
+    /* Creates a button for each table cell, also setting up an image for each button (with a different hover image and size) */
     private Callback getButtonCell(Image image, Image imageHover)
     {
         Callback<TableColumn<Tipoproduto, String>, TableCell<Tipoproduto, String>> cellFactory;
@@ -103,6 +107,7 @@ public class FXMLListCategoryController implements Initializable {
                         }
                         else
                         {
+                            /* On edit button, opens an edit category window with the row category info and the list of existent categories */
                             button.setOnAction((event) -> {
                                 Tipoproduto type = getTableView().getItems().get(getIndex());
                                 loadNewEditWindow(FXMLEditCategoryController.class, "FXMLEditCategory.fxml", "Armazém - Editar Categoria", "Não foi possível carregar o ficheiro FXMLEditCategory.fxml", type);
@@ -127,7 +132,7 @@ public class FXMLListCategoryController implements Initializable {
     }
     
     
-    // Sets the image to be used on a button
+    /* * Sets the button image and size * */
     private void setButtonImageView(ImageView imageView, Image image, double width, double height)
     {
         imageView.setImage(image);
@@ -135,19 +140,19 @@ public class FXMLListCategoryController implements Initializable {
         imageView.setFitHeight(height);
     }
     
-    // Sets the row button listener, graphics and background
+    /* * Sets a button image for each button and its hover * */
     private void setRowButton(Button button, ImageView imageView, Image image, Image imageHover)
     {
         button.setBackground(Background.EMPTY);
         button.setGraphic(imageView);
 
         button.hoverProperty().addListener((ov, oldValue, newValue) -> {
-            if(newValue)
+            if(newValue) // On hover
             {
                 setButtonImageView(imageView, imageHover, 14, 14);
                 button.setGraphic(imageView);
             }
-            else
+            else // Not on hover
             {
                 setButtonImageView(imageView, image, 12, 12);
                 button.setGraphic(imageView);
@@ -155,13 +160,15 @@ public class FXMLListCategoryController implements Initializable {
         });
     }
     
+    /* * Loads a new window on button click * */
     @FXML
     void handleAddButtonAction(ActionEvent event)
     {
-        loadNewWindow(FXMLAddCategoryController.class, "FXMLAddCategory.fxml", "Armazém - Adicionar Categoria", "Não foi possível carregar o ficheiro FXMLAddCategory.fxml");
+        loadNewAddWindow(FXMLAddCategoryController.class, "FXMLAddCategory.fxml", "Armazém - Adicionar Categoria", "Não foi possível carregar o ficheiro FXMLAddCategory.fxml");
     }
     
-    private void loadNewWindow(Class controller, String fileName, String title, String message)
+    /* * Loads a new add window * */
+    private void loadNewAddWindow(Class controller, String fileName, String title, String message)
     {
         try
         {
@@ -178,6 +185,7 @@ public class FXMLListCategoryController implements Initializable {
         }
     }
     
+    /* * Loads a new edit window * */
     private void loadNewEditWindow(Class controller, String fileName, String title, String message, Tipoproduto type)
     {
         try
@@ -186,9 +194,7 @@ public class FXMLListCategoryController implements Initializable {
             Parent root = (Parent) loader.load();
             
             FXMLEditCategoryController editController = (FXMLEditCategoryController) loader.getController();
-            editController.setProductTypeList(productTypeObservableList);
-            editController.setProductType(type);
-            editController.setField();
+            editController.initializeOnControllerCall(this, productTypeObservableList, type);
             
             Stage stage = new Stage();
             stage.setTitle(title);
@@ -201,23 +207,48 @@ public class FXMLListCategoryController implements Initializable {
         }
     }
     
-    // Searches categories
-    private void getSearchList()
+    /* * Searches for categories when a key is released * */
+    @FXML
+    void getSearchList()
     {
-        if(searchCategoryTextField.getText().length() >= 3)
+        List<Tipoproduto> typeList = new ArrayList<>();
+            
+        /* If something has been typed, tries to find an existent category with the given name or ID */
+        if(searchCategoryTextField.getText().length() > 0)
         {
-            List<Tipoproduto> typeList = new ArrayList<>();
-
+            typeList.clear();
+            
+            String nonCharacters = "[^\\p{L}\\p{Nd}]";
+            
             for(Tipoproduto type : productTypeObservableList)
             {
-                String searchNameString = type.getNome().replaceAll("\\s+", "");
-                String searchIDString = String.valueOf(type.getIdtipoproduto());
-                System.out.println(searchIDString + " " + searchNameString);
+                String searchString = StringUtils.stripAccents(searchCategoryTextField.getText().replaceAll(nonCharacters, "").toLowerCase());
+                
+                String categoryName = StringUtils.stripAccents(type.getNome().replaceAll(nonCharacters, "").toLowerCase());
+                String categoryID = String.valueOf(type.getIdtipoproduto());
+                
+                if(categoryName.contains(searchString) || categoryID.contains(searchString))
+                {
+                    typeList.add(type);
+                }
             }
-        }
-        else
-        {
             
+            setSearchedTableValues(typeList);
         }
+        else /* If nothing has been typed, show full category list */
+        {
+            typeList.clear();
+            
+            typeList = productTypeObservableList;
+            setSearchedTableValues(typeList);
+        }
+    }
+    
+    /* * Sets new table values * */
+    private void setSearchedTableValues(List<Tipoproduto> typeList)
+    {
+        ObservableList<Tipoproduto> typeObservableList;
+        typeObservableList = FXCollections.observableArrayList(typeList);
+        setTableItems(typeObservableList);
     }
 }
