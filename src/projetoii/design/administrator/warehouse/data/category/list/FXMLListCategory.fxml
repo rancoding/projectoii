@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="290.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoii.design.administrator.warehouse.data.category.list.FXMLListCategoryController">
     <children>
-      <TextField fx:id="searchCategoryTextField" layoutX="10.0" layoutY="8.0" onKeyReleased="#getSearchList" prefWidth="200.0" promptText="Pesquisar" />
+      <TextField fx:id="searchCategoryTextField" layoutX="10.0" layoutY="8.0" onKeyPressed="#getSearchList" onKeyReleased="#getSearchList" prefWidth="200.0" promptText="Pesquisar" />
       <Button layoutX="547.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAddButtonAction" text="+" />
       <TableView fx:id="categoryTable" layoutX="10.0" layoutY="45.0" prefHeight="235.0" prefWidth="561.0">
          <columns>
