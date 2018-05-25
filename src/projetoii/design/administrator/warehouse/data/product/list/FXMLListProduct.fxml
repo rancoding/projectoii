@@ -16,10 +16,10 @@
       <TableView fx:id="productTable" layoutX="10.0" layoutY="45.0" prefHeight="235.0" prefWidth="561.0">
          <columns>
             <TableColumn fx:id="barCodeColumn" prefWidth="131.0" text="Código de Barras" />
-            <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Produto" />
-            <TableColumn fx:id="categoryColumn" prefWidth="100.0" text="Categoria" />
-            <TableColumn fx:id="sellPriceColumn" prefWidth="100.0" text="Preço de Venda" />
-            <TableColumn fx:id="editColumn" editable="false" prefWidth="27.0" sortable="false">
+            <TableColumn fx:id="nameColumn" prefWidth="135.0" text="Produto" />
+            <TableColumn fx:id="categoryColumn" prefWidth="96.0" text="Categoria" />
+            <TableColumn fx:id="sellPriceColumn" prefWidth="102.0" text="Preço de Venda" />
+            <TableColumn fx:id="editColumn" editable="false" minWidth="9.0" prefWidth="26.0" sortable="false">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,7 +27,7 @@
                      </image></ImageView>
                </graphic>
             </TableColumn>
-            <TableColumn fx:id="boxColumn" editable="false" prefWidth="27.0" sortable="false">
+            <TableColumn fx:id="boxColumn" editable="false" prefWidth="29.0" sortable="false">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" smooth="false">
                      <image>
@@ -35,7 +35,7 @@
                      </image></ImageView>
                </graphic>
             </TableColumn>
-            <TableColumn fx:id="detailColumn" editable="false" prefWidth="25.0" sortable="false">
+            <TableColumn fx:id="detailColumn" editable="false" prefWidth="26.0" sortable="false">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" smooth="false">
                      <image>

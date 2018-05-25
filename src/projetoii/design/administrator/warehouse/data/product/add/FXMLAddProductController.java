@@ -33,6 +33,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+import org.apache.commons.lang3.text.WordUtils;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -81,6 +82,9 @@ public class FXMLAddProductController implements Initializable {
         fillColorComboBox();
     }    
     
+
+    
+        
     public void fillBrandComboBox(){
         
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -105,7 +109,7 @@ public class FXMLAddProductController implements Initializable {
                         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
                     }
         });    
-        session.close(); 
+        
     }
     
     public void fillTypeProductComboBox(){
@@ -242,7 +246,7 @@ public class FXMLAddProductController implements Initializable {
         }else{
         
         prod.setCodbarras(Long.parseLong(barCodeText.getText()));
-        prod.setDescricao(nameText.getText());
+        prod.setDescricao(WordUtils.capitalizeFully(nameText.getText()));
         prod.setMarca((Marca) brandComboBox.getSelectionModel().getSelectedItem());
         prod.setTamanho((Tamanho) sizeComboBox.getSelectionModel().getSelectedItem());
         prod.setTipoproduto((Tipoproduto) typeComboBox.getSelectionModel().getSelectedItem());
