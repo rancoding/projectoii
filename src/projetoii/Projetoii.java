@@ -6,6 +6,7 @@
 package projetoii;
 
 import dao.Funcionario;
+import dao.Tipoproduto;
 import hibernate.HibernateUtil;
 import java.io.IOException;
 import java.util.List;
@@ -34,7 +35,6 @@ public class Projetoii extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/list/FXMLListProduct.fxml"));
 
         //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/category/list/FXMLListCategory.fxml"));
-
         
         Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -35,6 +35,7 @@ public class FXMLListCategoryController implements Initializable {
 
     /* Variables used for setting up the table content */
     @FXML public TableView<Tipoproduto> categoryTable;
+    @FXML private TableColumn<Tipoproduto, Byte> idColumn;
     @FXML private TableColumn<Tipoproduto, String> nameColumn;
     @FXML private TableColumn<Tipoproduto, String> editColumn;
     private ObservableList<Tipoproduto> productTypeObservableList;
@@ -55,6 +56,11 @@ public class FXMLListCategoryController implements Initializable {
         {
             initializeTable(productTypeList);
         }
+        else
+        {
+            productTypeList = new ArrayList<Tipoproduto>();
+            initializeTable(productTypeList);
+        }
         
         /* Closes the database connection */
         session.close();
@@ -64,6 +70,7 @@ public class FXMLListCategoryController implements Initializable {
     private void initializeTable(List<Tipoproduto> productTypeList)
     {
         /* Sets column variables to use entity info, empty for a button creation */
+        this.idColumn.setCellValueFactory(new PropertyValueFactory<>("idtipoproduto"));
         this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         this.editColumn.setCellValueFactory(new PropertyValueFactory<>(""));
         
@@ -174,6 +181,10 @@ public class FXMLListCategoryController implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(controller.getResource(fileName));
             Parent root = (Parent) loader.load();
+            
+            FXMLAddCategoryController addController = (FXMLAddCategoryController) loader.getController();
+            addController.initializeOnControllerCall(this, productTypeObservableList);
+            
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(root));
@@ -207,7 +218,7 @@ public class FXMLListCategoryController implements Initializable {
         }
     }
     
-    /* * Searches for categories when a key is released * */
+    /* * Searches for categories when a key is pressed * */
     @FXML
     void getSearchList()
     {
@@ -245,7 +256,7 @@ public class FXMLListCategoryController implements Initializable {
     }
     
     /* * Sets new table values * */
-    private void setSearchedTableValues(List<Tipoproduto> typeList)
+    public void setSearchedTableValues(List<Tipoproduto> typeList)
     {
         ObservableList<Tipoproduto> typeObservableList;
         typeObservableList = FXCollections.observableArrayList(typeList);
