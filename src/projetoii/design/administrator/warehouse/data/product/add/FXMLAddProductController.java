@@ -226,6 +226,7 @@ public class FXMLAddProductController implements Initializable {
         Session session = HibernateUtil.getSessionFactory().openSession();
         
         int exists = 0;
+        int empty = emptyVariables();
         
         Transaction tx = session.beginTransaction();
         
@@ -235,6 +236,11 @@ public class FXMLAddProductController implements Initializable {
         products = session.createCriteria(Produto.class).list(); 
         
         Produto prod = new Produto();
+        
+        if (empty == 1){
+            this.showConfirmation("Aviso", "Introduza todos os campos");
+        }else{
+        
         prod.setCodbarras(Long.parseLong(barCodeText.getText()));
         prod.setDescricao(nameText.getText());
         prod.setMarca((Marca) brandComboBox.getSelectionModel().getSelectedItem());
@@ -252,20 +258,23 @@ public class FXMLAddProductController implements Initializable {
             }
         }
         
-        if(exists == 1){
-            if(this.showConfirmation("Aviso", "O produto que introduziu já existe")){
-                
-                this.resetInputs(event);
-            }
-        }else{
-            if(prod.getPrecocompra()>prod.getPrecovenda()){
-                if(this.showConfirmation("Aviso", "O Preço de Venda deve ser superior ao Preço de Compra")){
+        
+        
+            if(exists == 1){
+                if(this.showConfirmation("Aviso", "O produto que introduziu já existe")){
+
                     this.resetInputs(event);
-                }   
-            }else{    
-                session.save(prod);
+                }
+            }else{
+                if(prod.getPrecocompra()>prod.getPrecovenda()){
+                    if(this.showConfirmation("Aviso", "O Preço de Venda deve ser superior ao Preço de Compra")){
+                        this.resetInputs(event);
+                    }   
+                }else{    
+                    session.save(prod);
+                }
+
             }
-            
         }
         tx.commit();
         session.close();
@@ -280,6 +289,23 @@ public class FXMLAddProductController implements Initializable {
         
         Optional<ButtonType> option = alert.showAndWait();
         return option.get() == ButtonType.OK;
+    }
+    
+    public int emptyVariables(){
+        if(barCodeText.getText().isEmpty() || 
+                nameText.getText().isEmpty() ||
+                brandComboBox.getSelectionModel().isEmpty() || 
+                sizeComboBox.getSelectionModel().isEmpty() || 
+                genderComboBox.getSelectionModel().isEmpty() || 
+                typeComboBox.getSelectionModel().isEmpty() ||
+                colorComboBox.getSelectionModel().isEmpty() ||
+                buyPriceText.getText().isEmpty() || sellPriceText.getText().isEmpty() ) {
+            
+            return 1;
+        } else{
+            return 0;
+        }
+    
     }
     
     public void resetInputs(ActionEvent event){

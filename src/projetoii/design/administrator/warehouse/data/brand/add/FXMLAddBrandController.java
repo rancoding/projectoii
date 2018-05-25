@@ -33,7 +33,9 @@ public class FXMLAddBrandController implements Initializable {
         addBrandButton.setDisable(true);
     }    
     
-
+    public void setList(ObservableList brandsList){
+        
+    }    
  
     
 

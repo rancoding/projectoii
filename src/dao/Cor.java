@@ -52,7 +52,10 @@ public class Cor  implements java.io.Serializable {
     }
 
 
-
+    @Override
+    public String toString(){
+        return this.getNome();
+    }
 
 }
 

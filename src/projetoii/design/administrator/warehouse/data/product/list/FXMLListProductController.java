@@ -35,6 +35,7 @@ import javafx.util.Callback;
 import org.hibernate.Session;
 import org.apache.commons.lang3.StringUtils;
 import projetoii.design.administrator.warehouse.data.product.add.FXMLAddProductController;
+import projetoii.design.administrator.warehouse.data.product.detail.FXMLProductDetailController;
 import projetoii.design.administrator.warehouse.data.product.edit.FXMLEditProductController;
 
 
@@ -244,8 +245,9 @@ public class FXMLListProductController implements Initializable {
                         {
                             /* On edit button, opens an edit category window with the row category info and the list of existent categories */
                             button.setOnAction((event) -> {
-                                Produto type = getTableView().getItems().get(getIndex());
-                                loadNewEditWindow(FXMLEditProductController.class, "FXMLEditProduct.fxml", "Armazém - Editar Produto", "Não foi possível carregar o ficheiro FXMLEditProduct.fxml", type);
+                                Produto product = getTableView().getItems().get(getIndex());
+                                System.out.println(product);
+                                loadNewDetailWindow(FXMLProductDetailController.class, "FXMLProductDetail.fxml", "Armazém - Detalhe Produto", "Não foi possível carregar o ficheiro FXMLProductDetail.fxml", product);
                             });
                             
                             setGraphic(button);
@@ -329,6 +331,28 @@ public class FXMLListProductController implements Initializable {
             
             FXMLEditProductController editController = (FXMLEditProductController) loader.getController();
             editController.initializeOnControllerCall(this, productObservableList, type);
+            
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+        catch(Exception e)
+        {
+            System.out.println(message);
+        }
+    }
+    
+    /* * Loads a new detail window * */
+    private void loadNewDetailWindow(Class controller, String fileName, String title, String message, Produto product)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(controller.getResource(fileName));
+            Parent root = (Parent) loader.load();
+            
+            FXMLProductDetailController detailController = (FXMLProductDetailController) loader.getController();
+            detailController.initializeOnControllerCall(product);
             
             Stage stage = new Stage();
             stage.setTitle(title);

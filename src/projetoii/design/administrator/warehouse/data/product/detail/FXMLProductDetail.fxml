@@ -10,23 +10,23 @@
 <AnchorPane id="AnchorPane" prefHeight="280.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoii.design.administrator.warehouse.data.product.detail.FXMLProductDetailController">
     <children>
       <Label layoutX="10.0" layoutY="14.0" prefWidth="100.0" text="Código de Barras" />
-      <TextField editable="false" layoutX="111.0" layoutY="10.0" prefWidth="150.0" />
+      <TextField fx:id="barCodeText" disable="true" editable="false" layoutX="111.0" layoutY="10.0" prefWidth="150.0" />
       <Label layoutX="10.0" layoutY="47.0" prefWidth="100.0" text="Nome" />
-      <TextField editable="false" layoutX="111.0" layoutY="43.0" prefWidth="150.0" />
+      <TextField fx:id="nameText" disable="true" editable="false" layoutX="111.0" layoutY="43.0" prefWidth="150.0" />
       <Label layoutX="10.0" layoutY="82.0" prefWidth="100.0" text="Marca" />
-      <ComboBox layoutX="111.0" layoutY="78.0" prefWidth="150.0" promptText="Nike" />
+      <ComboBox fx:id="brandComboBox" disable="true" layoutX="111.0" layoutY="78.0" prefWidth="150.0" promptText="Nike" />
       <Label layoutX="10.0" layoutY="117.0" prefWidth="100.0" text="Tipo de Produto" />
-      <ComboBox layoutX="111.0" layoutY="113.0" prefWidth="150.0" promptText="Sapatilhas" />
+      <ComboBox fx:id="typeComboBox" disable="true" layoutX="111.0" layoutY="113.0" prefWidth="150.0" promptText="Sapatilhas" />
       <Label layoutX="10.0" layoutY="152.0" prefWidth="100.0" text="Tamanho" />
-      <ComboBox layoutX="111.0" layoutY="148.0" prefWidth="150.0" promptText="40" />
+      <ComboBox fx:id="sizeComboBox" disable="true" layoutX="111.0" layoutY="148.0" prefWidth="150.0" promptText="40" />
       <Label layoutX="10.0" layoutY="187.0" prefWidth="100.0" text="Sexo" />
-      <ComboBox layoutX="111.0" layoutY="183.0" prefWidth="150.0" promptText="Masculino" />
+      <ComboBox fx:id="genderComboBox" disable="true" layoutX="111.0" layoutY="183.0" prefWidth="150.0" promptText="Masculino" />
       <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="117.0" prefWidth="100.0" text="Cor" />
-      <ComboBox layoutX="440.0" layoutY="113.0" prefWidth="150.0" promptText="Vermelho" />
+      <ComboBox fx:id="colorComboBox" disable="true" layoutX="440.0" layoutY="113.0" prefWidth="150.0" promptText="Vermelho" />
       <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="152.0" prefWidth="100.0" text="Preço de Compra" />
-      <TextField alignment="CENTER_RIGHT" editable="false" layoutX="440.0" layoutY="148.0" prefWidth="150.0" text="20€" />
+      <TextField fx:id="buyPriceText" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="440.0" layoutY="148.0" prefWidth="150.0" text="20€" />
       <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="187.0" prefWidth="100.0" text="Preço de Venda" />
-      <TextField alignment="CENTER_RIGHT" editable="false" layoutX="440.0" layoutY="183.0" prefWidth="150.0" text="30€" />
+      <TextField fx:id="sellPriceText" alignment="CENTER_RIGHT" disable="true" editable="false" layoutX="440.0" layoutY="183.0" prefWidth="150.0" text="30€" />
       <Pane layoutY="220.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #E2E2E2;">
          <children>
             <Button layoutX="430.0" layoutY="18.0" mnemonicParsing="false" prefWidth="50.0" style="-fx-background-color: #;" text="OK" />
