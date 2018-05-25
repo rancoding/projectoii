@@ -31,7 +31,7 @@ public class Projetoii extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/add/FXMLAddProduct.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/list/FXMLListProduct.fxml"));
 
         //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/category/list/FXMLListCategory.fxml"));
 
@@ -43,6 +43,7 @@ public class Projetoii extends Application {
 
     @Override
     public void stop(){
+        
         StandardServiceRegistryBuilder.destroy(HibernateUtil.getSessionFactory().getSessionFactoryOptions().getServiceRegistry());
         Platform.exit();
     }

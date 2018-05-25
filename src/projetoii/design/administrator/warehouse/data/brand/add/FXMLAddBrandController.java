@@ -7,6 +7,7 @@ package projetoii.design.administrator.warehouse.data.brand.add;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 
 
@@ -25,6 +26,9 @@ public class FXMLAddBrandController implements Initializable {
         // TODO
     }    
     
+    public void setList(ObservableList brandsList){
+    
+    }
     
     
 }

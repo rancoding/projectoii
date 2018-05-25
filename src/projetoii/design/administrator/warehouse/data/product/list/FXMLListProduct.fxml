@@ -10,16 +10,16 @@
 
 <AnchorPane id="AnchorPane" prefHeight="290.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoii.design.administrator.warehouse.data.product.list.FXMLListProductController">
     <children>
-      <TextField layoutX="10.0" layoutY="8.0" />
+      <TextField fx:id="searchProductTextField" layoutX="10.0" layoutY="8.0" onKeyPressed="#getSearchList" onKeyReleased="#getSearchList" />
       <Button layoutX="161.0" layoutY="8.0" mnemonicParsing="false" text="Procurar" />
-      <Button layoutX="546.0" layoutY="8.0" mnemonicParsing="false" text="+" />
-      <TableView layoutX="10.0" layoutY="45.0" prefHeight="235.0" prefWidth="561.0">
+      <Button layoutX="546.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAddButtonAction" text="+" />
+      <TableView fx:id="productTable" layoutX="10.0" layoutY="45.0" prefHeight="235.0" prefWidth="561.0">
          <columns>
-            <TableColumn prefWidth="131.0" text="Código de Barras" />
-            <TableColumn prefWidth="150.0" text="Produto" />
-            <TableColumn prefWidth="100.0" text="Categoria" />
-            <TableColumn prefWidth="100.0" text="Preço" />
-            <TableColumn editable="false" prefWidth="27.0" sortable="false">
+            <TableColumn fx:id="barCodeColumn" prefWidth="131.0" text="Código de Barras" />
+            <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Produto" />
+            <TableColumn fx:id="categoryColumn" prefWidth="100.0" text="Categoria" />
+            <TableColumn fx:id="sellPriceColumn" prefWidth="100.0" text="Preço de Venda" />
+            <TableColumn fx:id="editColumn" editable="false" prefWidth="27.0" sortable="false">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,7 +27,7 @@
                      </image></ImageView>
                </graphic>
             </TableColumn>
-            <TableColumn editable="false" prefWidth="27.0" sortable="false">
+            <TableColumn fx:id="boxColumn" editable="false" prefWidth="27.0" sortable="false">
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" smooth="false">
                      <image>
@@ -35,7 +35,7 @@
                      </image></ImageView>
                </graphic>
             </TableColumn>
-            <TableColumn editable="false" prefWidth="25.0" sortable="false">
+            <TableColumn fx:id="detailColumn" editable="false" prefWidth="25.0" sortable="false">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" smooth="false">
                      <image>

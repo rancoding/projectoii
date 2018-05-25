@@ -50,7 +50,11 @@ public class Tipoproduto  implements java.io.Serializable {
     public void setProdutos(Set<Produto> produtos) {
         this.produtos = produtos;
     }
-
+    
+    @Override
+    public String toString(){
+        return this.getNome();
+    }
 
 
 

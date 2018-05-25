@@ -7,6 +7,7 @@ package projetoii.design.administrator.warehouse.data.size.add;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 
 /**
@@ -23,5 +24,9 @@ public class FXMLAddSizeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public void setList(ObservableList brandsList){
+    
+    }
     
 }

@@ -58,6 +58,12 @@ public class FXMLAddProductController implements Initializable {
     @FXML private TextField buyPriceText;
     @FXML private TextField sellPriceText;
     
+    ObservableList<Marca> marcaObservableList;
+    ObservableList<Tipoproduto> tipoProdutoObservableList;
+    ObservableList<Tamanho> tamanhoObservableList;
+    ObservableList<Cor> corObservableList;
+    
+    
     
     
     
@@ -80,13 +86,13 @@ public class FXMLAddProductController implements Initializable {
         Session session = HibernateUtil.getSessionFactory().openSession();
        
         
-        ObservableList<Marca> marcaObservableList;
+        
 
         List<Marca> marcaList = session.createCriteria(Marca.class).list();
-        marcaObservableList = FXCollections.observableArrayList(marcaList);
+        this.marcaObservableList = FXCollections.observableArrayList(marcaList);
 
         
-        brandComboBox.setItems(marcaObservableList);
+        brandComboBox.setItems(this.marcaObservableList);
         brandComboBox.setConverter(new StringConverter<Marca>()
         {
                     @Override
@@ -107,13 +113,13 @@ public class FXMLAddProductController implements Initializable {
         Session session = HibernateUtil.getSessionFactory().openSession();
        
         
-        ObservableList<Tipoproduto> tipoProdutoObservableList;
+        
 
         List<Tipoproduto> tipoProdutoList = session.createCriteria(Tipoproduto.class).list();
-        tipoProdutoObservableList = FXCollections.observableArrayList(tipoProdutoList);
+        this.tipoProdutoObservableList = FXCollections.observableArrayList(tipoProdutoList);
 
      
-        typeComboBox.setItems(tipoProdutoObservableList);
+        typeComboBox.setItems(this.tipoProdutoObservableList);
         typeComboBox.setConverter(new StringConverter<Tipoproduto>()
         {
                     @Override
@@ -135,13 +141,13 @@ public class FXMLAddProductController implements Initializable {
         Session session = HibernateUtil.getSessionFactory().openSession();
        
         
-        ObservableList<Tamanho> tamanhoObservableList;
+        
 
         List<Tamanho> tamanhoList = session.createCriteria(Tamanho.class).list();
-        tamanhoObservableList = FXCollections.observableArrayList(tamanhoList);
+        this.tamanhoObservableList = FXCollections.observableArrayList(tamanhoList);
 
         
-        sizeComboBox.setItems(tamanhoObservableList);
+        sizeComboBox.setItems(this.tamanhoObservableList);
         sizeComboBox.setConverter(new StringConverter<Tamanho>()
         {
                     @Override
@@ -182,13 +188,13 @@ public class FXMLAddProductController implements Initializable {
         Session session = HibernateUtil.getSessionFactory().openSession();
        
         
-        ObservableList<Cor> corObservableList;
+        
 
         List<Cor> corList = session.createCriteria(Cor.class).list();
-        corObservableList = FXCollections.observableArrayList(corList);
+        this.corObservableList = FXCollections.observableArrayList(corList);
 
      
-        colorComboBox.setItems(corObservableList);
+        colorComboBox.setItems(this.corObservableList);
         colorComboBox.setConverter(new StringConverter<Cor>()
         {
                     @Override
@@ -295,6 +301,8 @@ public class FXMLAddProductController implements Initializable {
         
         FXMLLoader loader = new FXMLLoader(FXMLAddBrandController.class.getResource("FXMLAddBrand.fxml"));
         Parent root = (Parent) loader.load();
+        FXMLAddBrandController addController = (FXMLAddBrandController) loader.getController();
+        addController.setList(marcaObservableList);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -306,6 +314,8 @@ public class FXMLAddProductController implements Initializable {
         
         FXMLLoader loader = new FXMLLoader(FXMLAddSizeController.class.getResource("FXMLAddSize.fxml"));
         Parent root = (Parent) loader.load();
+        FXMLAddSizeController addController = (FXMLAddSizeController) loader.getController();
+        addController.setList(marcaObservableList);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -326,6 +336,8 @@ public class FXMLAddProductController implements Initializable {
         
         FXMLLoader loader = new FXMLLoader(FXMLAddColorController.class.getResource("FXMLAddColor.fxml"));
         Parent root = (Parent) loader.load();
+        FXMLAddColorController addController = (FXMLAddColorController) loader.getController();
+        addController.setList(marcaObservableList);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
