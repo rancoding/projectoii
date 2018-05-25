@@ -1,111 +1,121 @@
 /* Botão dos Produtos */
-#produtosBtn
+#productButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#produtosBtn:hover
+#productButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#produtosBtn:pressed
+#productButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#produtosBtn:focused
+#productButton:selected
 {
-    -fx-border-width: 0 0 0 3;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 0;
     -fx-border-color: #039ed3;
 }
 
 /* Botão das Categorias */
-#categoriasBtn
+#categoryButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#categoriasBtn:hover
+#categoryButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#categoriasBtn:pressed
+#categoryButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#categoriasBtn:focused
+#categoryButton:selected
 {
-    -fx-border-width: 0 0 0 3;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 0;
     -fx-border-color: #039ed3;
 }
 
-#marcasBtn
+#brandButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#marcasBtn:hover
+#brandButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#marcasBtn:pressed
+#brandButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#marcasBtn:focused
+#brandButton:selected
 {
-    -fx-border-width: 0 0 0 3;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 0;
     -fx-border-color: #039ed3;
 }
 
-#tamanhosBtn
+#sizeButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#tamanhosBtn:hover
+#sizeButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#tamanhosBtn:pressed
+#sizeButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#tamanhosBtn:focused
+#sizeButton:selected
 {
-    -fx-border-width: 0 0 0 3;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 0;
     -fx-border-color: #039ed3;
 }
 
-#coresBtn
+#colorButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#coresBtn:hover
+#colorButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#coresBtn:pressed
+#colorButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#coresBtn:focused
+#colorButton:selected
 {
-    -fx-border-width: 0 0 0 3;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 0;
     -fx-border-color: #039ed3;
 }

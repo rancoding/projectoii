@@ -1,87 +1,87 @@
-#armazemBtn
+#warehouseButton
 {
+    -fx-text-fill: #ffffff;
     -fx-background-color: #2d2d2f;
     -fx-background-radius: 0em;
 }
 
-#armazemBtn:hover
+#warehouseButton:hover
 {
     -fx-background-color: #212123;
 }
 
-#armazemBtn:pressed
+#warehouseButton:pressed
 {
     -fx-background-color: #1c1c1e;
 }
 
-#armazemBtn:focused
+#warehouseButton:selected
 {
-    -fx-border-width: 0 0 3 0;
-    -fx-border-color: #039ed3;
+    -fx-text-fill: #099ed3;
 }
 
-#funcionariosBtn
+#employeeButton
 {
+    -fx-text-fill: #ffffff;
     -fx-background-color: #2d2d2f;
     -fx-background-radius: 0em;
 }
 
-#funcionariosBtn:hover
+#employeeButton:hover
 {
     -fx-background-color: #212123;
 }
 
-#funcionariosBtn:pressed
+#employeeButton:pressed
 {
     -fx-background-color: #1c1c1e;
 }
 
-#funcionariosBtn:focused
+#employeeButton:selected
 {
-    -fx-border-width: 0 0 3 0;
-    -fx-border-color: #039ed3;
+    -fx-text-fill: #099ed3;
 }
 
-#reposicoesBtn
+#repositionButton
 {
+    -fx-text-fill: #ffffff;
     -fx-background-color: #2d2d2f;
     -fx-background-radius: 0em;
 }
 
-#reposicoesBtn:hover
+#repositionButton:hover
 {
     -fx-background-color: #212123;
 }
 
-#reposicoesBtn:pressed
+#repositionButton:pressed
 {
     -fx-background-color: #1c1c1e;
 }
 
-#reposicoesBtn:focused
+#repositionButton:selected
 {
-    -fx-border-width: 0 0 3 0;
-    -fx-border-color: #039ed3;
+    -fx-text-fill: #099ed3;
 }
 
-#caixasBtn
+#boxButton
 {
+    -fx-text-fill: #ffffff;
     -fx-background-color: #2d2d2f;
     -fx-background-radius: 0em;
 }
 
-#caixasBtn:hover
+#boxButton:hover
 {
     -fx-background-color: #212123;
 }
 
-#caixasBtn:pressed
+#boxButton:pressed
 {
     -fx-background-color: #1c1c1e;
 }
 
-#caixasBtn:focused
+#boxButton:selected
 {
-    -fx-border-width: 0 0 3 0;
-    -fx-border-color: #039ed3;
+    -fx-text-fill: #099ed3;
 }
