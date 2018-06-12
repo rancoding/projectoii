@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import projetoii.design.administrator.warehouse.data.product.add.FXMLAddProductController;
 import projetoii.design.administrator.warehouse.data.size.list.FXMLListSizeController;
 
 public class FXMLAddSizeController implements Initializable {
@@ -24,6 +25,7 @@ public class FXMLAddSizeController implements Initializable {
     @FXML private Button addSizeButton;
     @FXML private Label errorLabel;
     
+    private FXMLAddProductController addProductController;
     private FXMLListSizeController listSizeController;
     private ObservableList<Tamanho> sizeList;
     
@@ -35,6 +37,19 @@ public class FXMLAddSizeController implements Initializable {
     
     public void setList(ObservableList brandsList){
     
+    }
+    
+     /* * Initializes all variables when getting called from another controller * */
+    public void initializeOnAddProductControllerCall(FXMLAddProductController addProductController, ObservableList<Tamanho> sizeList)
+    {
+        setListAddProductController(addProductController);
+        setObservableList(sizeList);
+    }
+    
+    /* * Sets list controller * */
+    private void setListAddProductController(FXMLAddProductController addProductController)
+    {
+        this.addProductController = addProductController;
     }
     
     /* * Initializes all variables when getting called from another controller * */
@@ -73,7 +88,10 @@ public class FXMLAddSizeController implements Initializable {
             this.listSizeController.setSearchedTableValues(sizeList);
             this.listSizeController.sizeTable.refresh();
         }
-        
+        else if(this.addProductController != null)
+        {
+            this.addProductController.sizeComboBox.getSelectionModel().select(sizeList.size()-1);
+        }
         closeStage(event);
     }
     

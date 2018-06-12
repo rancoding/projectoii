@@ -318,6 +318,10 @@ public class FXMLListProductController implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(controller.getResource(fileName));
             Parent root = (Parent) loader.load();
+            
+             FXMLAddProductController addController = (FXMLAddProductController) loader.getController();
+            addController.initializeOnControllerCall(this, productObservableList);
+            
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(root));
@@ -435,11 +439,11 @@ public class FXMLListProductController implements Initializable {
     }
     
     /* * Sets new table values * */
-    private void setSearchedTableValues(List<Produto> typeList)
+    public void setSearchedTableValues(List<Produto> productList)
     {
-        ObservableList<Produto> typeObservableList;
-        typeObservableList = FXCollections.observableArrayList(typeList);
-        setTableItems(typeObservableList);
+        ObservableList<Produto> productObservableList;
+        productObservableList = FXCollections.observableArrayList(productList);
+        setTableItems(productObservableList);
     }
    
 }

@@ -307,8 +307,8 @@ public class FXMLEditProductController implements Initializable {
         productUpdate.setTipoproduto((Tipoproduto) typeComboBox.getSelectionModel().getSelectedItem());
         productUpdate.setGenero(getComboBoxGender(genderComboBox.getSelectionModel().getSelectedIndex()));
         productUpdate.setCor((Cor) colorComboBox.getSelectionModel().getSelectedItem());
-        productUpdate.setPrecocompra(Long.parseLong(buyPriceText.getText()));
-        productUpdate.setPrecovenda(Long.parseLong(sellPriceText.getText()));
+        productUpdate.setPrecocompra(Double.parseDouble(buyPriceText.getText()));
+        productUpdate.setPrecovenda(Double.parseDouble(sellPriceText.getText()));
         
         
         session.update(productUpdate);
@@ -328,9 +328,7 @@ public class FXMLEditProductController implements Initializable {
                }else{   
                    product.setCodbarras(Long.valueOf(barCodeText.getText()));
                }
-           } 
-           
-           
+           }    
         }
         if(!(product.getTipoproduto()==((Tipoproduto) typeComboBox.getSelectionModel().getSelectedItem()))){
             product.setTipoproduto((Tipoproduto) typeComboBox.getSelectionModel().getSelectedItem());
@@ -348,12 +346,12 @@ public class FXMLEditProductController implements Initializable {
         if(!(product.getTamanho()==((Tamanho) sizeComboBox.getSelectionModel().getSelectedItem()))){
             product.setTamanho((Tamanho) sizeComboBox.getSelectionModel().getSelectedItem());
         }
-        if(!(product.getPrecocompra()==(Long.valueOf(buyPriceText.getText())))){
-            product.setPrecocompra(Long.parseLong(buyPriceText.getText()));
+        if(!(product.getPrecocompra()==(Double.parseDouble(buyPriceText.getText())))){
+            product.setPrecocompra(Double.parseDouble(buyPriceText.getText()));
         }
         
-        if(!(product.getPrecovenda()==(Long.valueOf(sellPriceText.getText())))){
-            product.setPrecovenda(Long.parseLong(sellPriceText.getText()));
+        if(!(product.getPrecovenda()==(Double.parseDouble(sellPriceText.getText())))){
+            product.setPrecovenda(Double.parseDouble(sellPriceText.getText()));
         }
         
         

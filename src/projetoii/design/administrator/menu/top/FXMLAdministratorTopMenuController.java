@@ -2,10 +2,8 @@ package projetoii.design.administrator.menu.top;
 
 import dao.Armazem;
 import dao.Loja;
-import dao.Marca;
 import hibernate.HibernateUtil;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -13,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
@@ -25,6 +22,16 @@ public class FXMLAdministratorTopMenuController implements Initializable {
 
     @FXML private ComboBox workLocationComboBox;
     @FXML private BorderPane adminTopMenu;
+    
+    private static byte workLocationId;
+
+    public static byte getWorkLocationId() {
+        return workLocationId;
+    }
+
+    public static void setWorkLocationId(byte workLocationId) {
+        FXMLAdministratorTopMenuController.workLocationId = workLocationId;
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -62,10 +69,12 @@ public class FXMLAdministratorTopMenuController implements Initializable {
         {
             if(workLocationComboBox.getSelectionModel().getSelectedItem() instanceof Armazem)
             {
+                setWorkLocationId( ((Armazem) workLocationComboBox.getSelectionModel().getSelectedItem()).getIdarmazem() );
                 switchCenter(FXMLWarehouseTopMenuController.class, "FXMLWarehouseTopMenu.fxml");
             }
             else if(workLocationComboBox.getSelectionModel().getSelectedItem() instanceof Loja)
             {
+                setWorkLocationId( ((Loja) workLocationComboBox.getSelectionModel().getSelectedItem()).getIdloja());
                 switchCenter(FXMLShopTopMenuController.class, "FXMLShopTopMenu.fxml");
             }
         }
@@ -76,10 +85,12 @@ public class FXMLAdministratorTopMenuController implements Initializable {
     {
         if(((ComboBox) event.getSource()).getSelectionModel().getSelectedItem() instanceof Armazem)
         {
+            setWorkLocationId( ((Armazem) workLocationComboBox.getSelectionModel().getSelectedItem()).getIdarmazem() );
             switchCenter(FXMLWarehouseTopMenuController.class, "FXMLWarehouseTopMenu.fxml");
         }
         else if(((ComboBox) event.getSource()).getSelectionModel().getSelectedItem() instanceof Loja)
         {
+            setWorkLocationId( ((Loja) workLocationComboBox.getSelectionModel().getSelectedItem()).getIdloja());
             switchCenter(FXMLShopTopMenuController.class, "FXMLShopTopMenu.fxml");
         }
     }

@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -34,6 +33,7 @@ public class FXMLWarehouseLeftMenuController implements Initializable {
     @FXML private ToggleButton sizeButton;
     @FXML private ToggleButton colorButton;
     @FXML private BorderPane warehouseLeftMenu;
+    
     private static int selectedButton = 0;
 
     public static int getSelectedButton() {

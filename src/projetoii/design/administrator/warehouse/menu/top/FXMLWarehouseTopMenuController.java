@@ -11,12 +11,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import projetoii.design.administrator.shop.employee.list.FXMLListEmployeeController;
 import projetoii.design.administrator.warehouse.box.list.FXMLListBoxController;
+import projetoii.design.administrator.warehouse.employee.list.FXMLListEmployeeController;
 import projetoii.design.administrator.warehouse.menu.left.FXMLWarehouseLeftMenuController;
 import projetoii.design.administrator.warehouse.reposition.current.list.FXMLListCurrentRepositionController;
 
@@ -55,7 +54,9 @@ public class FXMLWarehouseTopMenuController implements Initializable {
             
             case "employeeButton":
             {
+                System.out.println("Entrou");
                 disableButtonSelection(false, true, false, false);
+                System.out.println("Entrou2");
                 switchCenter(FXMLListEmployeeController.class, "FXMLListEmployee.fxml");
                 break;
             }

@@ -1,6 +1,7 @@
 package projetoii.design.administrator.warehouse.data.color.add;
 
 import dao.Cor;
+import dao.Tamanho;
 import dao.Tipoproduto;
 import hibernate.HibernateUtil;
 import java.net.URL;
@@ -18,6 +19,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import projetoii.design.administrator.warehouse.data.color.list.FXMLListColorController;
+import projetoii.design.administrator.warehouse.data.product.add.FXMLAddProductController;
 
 public class FXMLAddColorController implements Initializable {
 
@@ -25,6 +27,7 @@ public class FXMLAddColorController implements Initializable {
     @FXML private Button addColorButton;
     @FXML private Label errorLabel;
     
+    private FXMLAddProductController addProductController;
     private FXMLListColorController listColorController;
     private ObservableList<Cor> colorList;
     
@@ -33,9 +36,20 @@ public class FXMLAddColorController implements Initializable {
     {
         addColorButton.setDisable(true);
     }    
-    public void setList(ObservableList brandsList){
-    
+   
+    /* * Initializes all variables when getting called from another controller * */
+    public void initializeOnAddProductControllerCall(FXMLAddProductController addProductController, ObservableList<Cor> colorList)
+    {
+        setListAddProductController(addProductController);
+        setObservableList(colorList);
     }
+    
+    /* * Sets list controller * */
+    private void setListAddProductController(FXMLAddProductController addProductController)
+    {
+        this.addProductController = addProductController;
+    }
+    
     
     /* * Initializes all variables when getting called from another controller * */
     public void initializeOnControllerCall(FXMLListColorController listColorController, ObservableList<Cor> colorList)
@@ -72,6 +86,10 @@ public class FXMLAddColorController implements Initializable {
         {
             this.listColorController.setSearchedTableValues(colorList);
             this.listColorController.colorTable.refresh();
+        }
+        else if(this.addProductController != null)
+        {
+            this.addProductController.colorComboBox.getSelectionModel().select(colorList.size()-1);
         }
         
         closeStage(event);
