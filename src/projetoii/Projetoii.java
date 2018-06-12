@@ -32,7 +32,8 @@ public class Projetoii extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-       Parent root = FXMLLoader.load(getClass().getResource("design/administrator/menu/top/FXMLAdministratorTopMenu.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("FXMLAccountType.fxml"));
+       //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/menu/top/FXMLAdministratorTopMenu.fxml"));
        // Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/list/FXMLListProduct.fxml"));
        // Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/add/FXMLAddProduct.fxml"));
 

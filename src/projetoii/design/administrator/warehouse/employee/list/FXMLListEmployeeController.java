@@ -29,6 +29,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import projetoii.design.administrator.menu.top.FXMLAdministratorTopMenuController;
@@ -67,6 +68,11 @@ public class FXMLListEmployeeController implements Initializable {
         
         if(!(employeeList.isEmpty()))
         {
+            for(Funcionario e : employeeList)
+            {
+                Hibernate.initialize(e.getHorario());
+            }
+            
             initializeTable(employeeList);
         }
         else
@@ -143,15 +149,15 @@ public class FXMLListEmployeeController implements Initializable {
                             button.setOnAction((event) -> {
                                 Funcionario employee = getTableView().getItems().get(getIndex());
                                 
-                                if(controller.isInstance(FXMLEditEmployeeController.class))
+                                if(controller.equals(FXMLEditEmployeeController.class))
                                 {
                                     loadNewEditWindow(controller, file, title, message, employee);
                                 }
-                                else if(controller.isInstance(FXMLEmployeeSchedulePointController.class))
+                                else if(controller.equals(FXMLEmployeeSchedulePointController.class))
                                 {
                                     loadNewScheduleWindow(controller, file, title, message, employee);
                                 }
-                                else if(controller.isInstance(FXMLEmployeeDetailController.class))
+                                else if(controller.equals(FXMLEmployeeDetailController.class))
                                 {
                                     loadNewDetailWindow(controller, file, title, message, employee);
                                 }
@@ -242,7 +248,7 @@ public class FXMLListEmployeeController implements Initializable {
             Parent root = (Parent) loader.load();
             
             FXMLEditEmployeeController editController = (FXMLEditEmployeeController) loader.getController();
-            //editController.initializeOnControllerCall(this, employeeObservableList, type);
+            editController.initializeOnControllerCall(this, employeeObservableList, employee);
             
             Stage stage = new Stage();
             stage.setTitle(title);
@@ -251,7 +257,8 @@ public class FXMLListEmployeeController implements Initializable {
         }
         catch(Exception e)
         {
-            System.out.println(message);
+            e.printStackTrace();
+            //System.out.println(message);
         }
     }
     
@@ -286,7 +293,7 @@ public class FXMLListEmployeeController implements Initializable {
             Parent root = (Parent) loader.load();
             
             FXMLEmployeeDetailController detailController = (FXMLEmployeeDetailController) loader.getController();
-            //detailController.initializeOnControllerCall(this, employeeObservableList, type);
+            detailController.initializeOnControllerCall(employee);
             
             Stage stage = new Stage();
             stage.setTitle(title);

@@ -1,22 +1,24 @@
 /* Botão dos Produtos */
-#produtosBtn
+#productButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#produtosBtn:hover
+#productButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#produtosBtn:pressed
+#productButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#produtosBtn:focused
+#productButton:selected
 {
-    -fx-border-width: 0 0 0 3;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 0;
     -fx-border-color: #039ed3;
 }

@@ -1,7 +1,6 @@
 package projetoii.design.administrator.warehouse.data.color.edit;
 
 import dao.Cor;
-import dao.Tipoproduto;
 import hibernate.HibernateUtil;
 import java.io.IOException;
 import java.net.URL;
@@ -19,7 +18,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import projetoii.design.administrator.warehouse.data.category.list.FXMLListCategoryController;
 import projetoii.design.administrator.warehouse.data.color.list.FXMLListColorController;
 
 public class FXMLEditColorController implements Initializable {

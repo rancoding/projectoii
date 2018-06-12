@@ -1,87 +1,87 @@
-#lojaBtn
+#shopButton
 {
+    -fx-text-fill: #ffffff;
     -fx-background-color: #2d2d2f;
     -fx-background-radius: 0em;
 }
 
-#lojaBtn:hover
+#shopButton:hover
 {
     -fx-background-color: #212123;
 }
 
-#lojaBtn:pressed
+#shopButton:pressed
 {
     -fx-background-color: #1c1c1e;
 }
 
-#lojaBtn:focused
+#shopButton:selected
 {
-    -fx-border-width: 0 0 3 0;
-    -fx-border-color: #039ed3;
+    -fx-text-fill: #099ed3;
 }
 
-#funcionariosBtn
+#employeeButton
 {
+    -fx-text-fill: #ffffff;
     -fx-background-color: #2d2d2f;
     -fx-background-radius: 0em;
 }
 
-#funcionariosBtn:hover
+#employeeButton:hover
 {
     -fx-background-color: #212123;
 }
 
-#funcionariosBtn:pressed
+#employeeButton:pressed
 {
     -fx-background-color: #1c1c1e;
 }
 
-#funcionariosBtn:focused
+#employeeButton:selected
 {
-    -fx-border-width: 0 0 3 0;
-    -fx-border-color: #039ed3;
+    -fx-text-fill: #099ed3;
 }
 
-#reposicoesBtn
+#repositionButton
 {
+    -fx-text-fill: #ffffff;
     -fx-background-color: #2d2d2f;
     -fx-background-radius: 0em;
 }
 
-#reposicoesBtn:hover
+#repositionButton:hover
 {
     -fx-background-color: #212123;
 }
 
-#reposicoesBtn:pressed
+#repositionButton:pressed
 {
     -fx-background-color: #1c1c1e;
 }
 
-#reposicoesBtn:focused
+#repositionButton:selected
 {
-    -fx-border-width: 0 0 3 0;
-    -fx-border-color: #039ed3;
+    -fx-text-fill: #099ed3;
 }
 
-#vendasBtn
+#saleButton
 {
+    -fx-text-fill: #ffffff;
     -fx-background-color: #2d2d2f;
     -fx-background-radius: 0em;
 }
 
-#vendasBtn:hover
+#saleButton:hover
 {
     -fx-background-color: #212123;
 }
 
-#vendasBtn:pressed
+#saleButton:pressed
 {
     -fx-background-color: #1c1c1e;
 }
 
-#vendasBtn:focused
+#saleButton:selected
 {
-    -fx-border-width: 0 0 3 0;
-    -fx-border-color: #039ed3;
+    -fx-text-fill: #099ed3;
 }

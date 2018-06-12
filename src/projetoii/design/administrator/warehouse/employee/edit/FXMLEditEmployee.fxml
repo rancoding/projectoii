@@ -10,34 +10,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="projetoii.design.administrator.warehouse.employee.edit.FXMLEditEmployeeController">
+<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoii.design.administrator.warehouse.employee.edit.FXMLEditEmployeeController">
     <children>
       <Label layoutX="10.0" layoutY="14.0" prefWidth="100.0" text="Nome" />
-      <TextField layoutX="111.0" layoutY="10.0" prefWidth="150.0" />
+      <TextField fx:id="nameField" layoutX="111.0" layoutY="10.0" prefWidth="150.0" />
       <Label layoutX="10.0" layoutY="47.0" prefWidth="100.0" text="Morada" />
-      <TextField layoutX="111.0" layoutY="43.0" prefWidth="150.0" />
+      <TextField fx:id="addressField" layoutX="111.0" layoutY="43.0" prefWidth="150.0" />
       <Label layoutX="10.0" layoutY="82.0" prefWidth="100.0" text="Data Nascimento" />
-      <DatePicker layoutX="111.0" layoutY="78.0" prefWidth="150.0" />
+      <DatePicker fx:id="birthdayDate" layoutX="111.0" layoutY="78.0" prefWidth="150.0" />
       <Label layoutX="10.0" layoutY="117.0" prefWidth="100.0" text="Sexo" />
-      <ComboBox layoutX="111.0" layoutY="113.0" prefWidth="150.0" />
+      <ComboBox fx:id="genderBox" layoutX="111.0" layoutY="113.0" prefWidth="150.0" />
       <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="82.0" prefWidth="100.0" text="Tipo Funcionário" />
-      <ComboBox layoutX="440.0" layoutY="78.0" prefWidth="150.0" />
+      <ComboBox fx:id="typeBox" layoutX="440.0" layoutY="78.0" prefWidth="150.0" />
       <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="117.0" prefWidth="100.0" text="Activo" />
-      <ComboBox layoutX="440.0" layoutY="113.0" prefWidth="150.0" />
+      <ComboBox fx:id="activeBox" layoutX="440.0" layoutY="113.0" prefWidth="150.0" />
       <Label layoutX="10.0" layoutY="152.0" prefWidth="100.0" text="Hora Entrada 1" />
-      <TextField layoutX="111.0" layoutY="148.0" prefWidth="150.0" />
+      <TextField fx:id="firstEntranceField" layoutX="111.0" layoutY="148.0" prefWidth="150.0" />
       <Label layoutX="10.0" layoutY="187.0" prefWidth="100.0" text="Hora Saída 1" />
-      <TextField layoutX="111.0" layoutY="183.0" prefWidth="150.0" />
+      <TextField fx:id="firstExitField" layoutX="111.0" layoutY="183.0" prefWidth="150.0" />
       <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="152.0" prefWidth="100.0" text="Hora Entrada 2" />
-      <TextField layoutX="440.0" layoutY="148.0" prefWidth="150.0" />
+      <TextField fx:id="secondEntranceField" layoutX="440.0" layoutY="148.0" prefWidth="150.0" />
       <Label alignment="CENTER_RIGHT" layoutX="330.0" layoutY="187.0" prefWidth="100.0" text="Hora Saída 2" />
-      <TextField layoutX="440.0" layoutY="183.0" prefWidth="150.0" />
-      <TableView layoutX="10.0" layoutY="220.0" prefHeight="140.0" prefWidth="580.0">
+      <TextField fx:id="secondExitField" layoutX="440.0" layoutY="183.0" prefWidth="150.0" />
+      <TableView fx:id="scheduleTable" layoutX="10.0" layoutY="220.0" prefHeight="140.0" prefWidth="580.0">
          <columns>
-            <TableColumn prefWidth="145.0" text="Hora de Entrada 1" />
-            <TableColumn prefWidth="145.0" text="Hora de Saída 1" />
-            <TableColumn prefWidth="145.0" text="Hora de Entrada 2" />
-            <TableColumn prefWidth="145.0" text="Hora de Saída 2" />
+            <TableColumn fx:id="firstEntranceColumn" prefWidth="145.0" text="Hora de Entrada 1" />
+            <TableColumn fx:id="firstExitColumn" prefWidth="145.0" text="Hora de Saída 1" />
+            <TableColumn fx:id="secondEntranceColumn" prefWidth="145.0" text="Hora de Entrada 2" />
+            <TableColumn fx:id="secondExitColumn" prefWidth="145.0" text="Hora de Saída 2" />
          </columns>
       </TableView>
       <Pane layoutY="370.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #e2e2e2;">

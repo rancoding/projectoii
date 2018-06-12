@@ -11,12 +11,12 @@
     <children>
       <TableView layoutX="10.0" layoutY="10.0" prefHeight="210.0" prefWidth="686.0">
          <columns>
-            <TableColumn prefWidth="50.0" text=" ">
+            <TableColumn prefWidth="22.0" text=" ">
                <graphic>
                   <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" />
                </graphic></TableColumn>
             <TableColumn prefWidth="175.0" text="Código de Barras" />
-            <TableColumn prefWidth="175.0" text="Nome" />
+            <TableColumn prefWidth="247.0" text="Nome" />
             <TableColumn prefWidth="125.0" text="Vendido" />
             <TableColumn prefWidth="103.0" text="Stock" />
             <TableColumn prefWidth="57.0" />

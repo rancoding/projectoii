@@ -54,9 +54,7 @@ public class FXMLWarehouseTopMenuController implements Initializable {
             
             case "employeeButton":
             {
-                System.out.println("Entrou");
                 disableButtonSelection(false, true, false, false);
-                System.out.println("Entrou2");
                 switchCenter(FXMLListEmployeeController.class, "FXMLListEmployee.fxml");
                 break;
             }

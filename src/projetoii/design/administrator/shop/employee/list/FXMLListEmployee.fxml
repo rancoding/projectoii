@@ -13,25 +13,24 @@
     <children>
       <Pane prefHeight="40.0" prefWidth="706.0">
          <children>
-            <TextField layoutX="10.0" layoutY="8.0" />
-            <Button layoutX="161.0" layoutY="8.0" mnemonicParsing="false" text="Procurar" />
+            <TextField layoutX="10.0" layoutY="8.0" prefWidth="200.0" promptText="Pesquisar" />
             <Button layoutX="672.0" layoutY="8.0" mnemonicParsing="false" text="+" />
          </children>
       </Pane>
       <TableView layoutX="10.0" layoutY="40.0" prefHeight="240.0" prefWidth="686.0">
          <columns>
-            <TableColumn prefWidth="126.0" text="Nome" />
-            <TableColumn prefWidth="150.0" text="Morada" />
+            <TableColumn prefWidth="248.0" text="Nome" />
             <TableColumn prefWidth="134.0" text="Data de Nascimento" />
-            <TableColumn prefWidth="125.0" text="Local de Trabalho" />
-            <TableColumn prefWidth="50.0">
+            <TableColumn prefWidth="95.0" text="Sexo" />
+            <TableColumn prefWidth="75.0" text="Activo" />
+            <TableColumn prefWidth="40.0">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/edit.png" />
                      </image></ImageView>
                </graphic></TableColumn>
-            <TableColumn prefWidth="50.0">
+            <TableColumn prefWidth="40.0">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -39,7 +38,7 @@
                      </image></ImageView>
                </graphic>
             </TableColumn>
-            <TableColumn prefWidth="50.0">
+            <TableColumn prefWidth="40.0">
                <graphic>
                   <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>

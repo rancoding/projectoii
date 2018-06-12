@@ -28,6 +28,7 @@
       <Pane prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #39393c;">
          <children>
             <ComboBox layoutX="584.0" layoutY="13.0" prefWidth="60.0" promptText="PT" />
+            <ComboBox fx:id="workLocationComboBox" layoutX="10.0" layoutY="13.0" prefWidth="150.0" />
          </children>
       </Pane>
    </children>

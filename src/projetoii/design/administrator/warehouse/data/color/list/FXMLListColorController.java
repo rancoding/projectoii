@@ -1,7 +1,6 @@
 package projetoii.design.administrator.warehouse.data.color.list;
 
 import dao.Cor;
-import dao.Tipoproduto;
 import hibernate.HibernateUtil;
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,8 +28,6 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
-import projetoii.design.administrator.warehouse.data.category.add.FXMLAddCategoryController;
-import projetoii.design.administrator.warehouse.data.category.edit.FXMLEditCategoryController;
 import projetoii.design.administrator.warehouse.data.color.add.FXMLAddColorController;
 import projetoii.design.administrator.warehouse.data.color.edit.FXMLEditColorController;
 

@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Gustavo Vieira
  */
-public class FXMLListRepositoryHistoryController implements Initializable {
+public class FXMLListRepositionHistoryController implements Initializable {
 
     /**
      * Initializes the controller class.

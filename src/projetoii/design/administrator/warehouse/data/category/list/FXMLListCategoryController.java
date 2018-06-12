@@ -58,7 +58,7 @@ public class FXMLListCategoryController implements Initializable {
         }
         else
         {
-            productTypeList = new ArrayList<Tipoproduto>();
+            productTypeList = new ArrayList<>();
             initializeTable(productTypeList);
         }
         

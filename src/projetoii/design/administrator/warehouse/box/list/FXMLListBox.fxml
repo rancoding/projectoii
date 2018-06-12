@@ -13,8 +13,7 @@
     <children>
       <Pane prefHeight="40.0" prefWidth="706.0">
          <children>
-            <TextField layoutX="10.0" layoutY="8.0" />
-            <Button layoutX="161.0" layoutY="8.0" mnemonicParsing="false" text="Procurar" />
+            <TextField layoutX="10.0" layoutY="8.0" prefWidth="200.0" promptText="Pesquisar" />
             <Button layoutX="672.0" layoutY="8.0" mnemonicParsing="false" text="+" />
          </children>
       </Pane>
@@ -22,7 +21,7 @@
          <columns>
             <TableColumn editable="false" prefWidth="50.0" text="#" />
             <TableColumn editable="false" prefWidth="186.0" text="Código de Barras" />
-            <TableColumn editable="false" prefWidth="200.0" text="Produto" />
+            <TableColumn editable="false" prefWidth="186.0" text="Produto" />
             <TableColumn editable="false" prefWidth="100.0" text="Quantidade" />
             <TableColumn editable="false" prefWidth="50.0" sortable="false">
                <graphic>

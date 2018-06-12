@@ -1,113 +1,123 @@
-#diarioBtn
+#dailyButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#diarioBtn:hover
+#dailyButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#diarioBtn:pressed
+#dailyButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#diarioBtn:focused
+#dailyButton:selected
 {
-    -fx-border-width: 0 0 3 0;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 0 0 3;
     -fx-border-color: #039ed3;
 }
 
 
-#semanalBtn
+#weeklyButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#semanalBtn:hover
+#weeklyButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#semanalBtn:pressed
+#weeklyButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#semanalBtn:focused
+#weeklyButton:selected
 {
-    -fx-border-width: 0 0 3 0;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 0 0 3;
     -fx-border-color: #039ed3;
 }
 
 
-#mensalBtn
+#monthlyButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#mensalBtn:hover
+#monthlyButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#mensalBtn:pressed
+#monthlyButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#mensalBtn:focused
+#monthlyButton:selected
 {
-    -fx-border-width: 0 0 3 0;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 3;
     -fx-border-color: #039ed3;
 }
 
 
-#anualBtn
+#yearlyButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#anualBtn:hover
+#yearlyButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#anualBtn:pressed
+#yearlyButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#anualBtn:focused
+#yearlyButton:selected
 {
-    -fx-border-width: 0 0 3 0;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 0;
     -fx-border-color: #039ed3;
 }
 
 
-#totalBtn
+#totalButton
 {
     -fx-background-color: #E9E9E9;
     -fx-background-radius: 0em;
 }
 
-#totalBtn:hover
+#totalButton:hover
 {
     -fx-background-color: #EFEFEF;
 }
 
-#totalBtn:pressed
+#totalButton:pressed
 {
     -fx-background-color: #F7F7F7;
 }
 
-#totalBtn:focused
+#totalButton:selected
 {
-    -fx-border-width: 0 0 3 0;
+    -fx-background-color: #1fbbef;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 0 3 0 0;
     -fx-border-color: #039ed3;
 }

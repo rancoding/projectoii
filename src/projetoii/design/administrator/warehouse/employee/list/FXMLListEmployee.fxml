@@ -19,7 +19,7 @@
       </Pane>
       <TableView fx:id="employeeTable" layoutX="10.0" layoutY="40.0" prefHeight="240.0" prefWidth="686.0">
          <columns>
-            <TableColumn fx:id="nameColumn" prefWidth="250.0" text="Nome" />
+            <TableColumn fx:id="nameColumn" prefWidth="248.0" text="Nome" />
             <TableColumn fx:id="birthdayColumn" prefWidth="134.0" text="Data de Nascimento" />
             <TableColumn fx:id="genderColumn" prefWidth="95.0" text="Sexo" />
             <TableColumn fx:id="workingColumn" prefWidth="75.0" text="Activo" />
