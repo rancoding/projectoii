@@ -17,8 +17,8 @@ public class Produto  implements java.io.Serializable {
      private Tamanho tamanho;
      private Tipoproduto tipoproduto;
      private String descricao;
-     private long precocompra;
-     private long precovenda;
+     private double precocompra;
+     private double precovenda;
      private char genero;
      private Set<Produtovenda> produtovendas = new HashSet<Produtovenda>(0);
      private Set<Produtoloja> produtolojas = new HashSet<Produtoloja>(0);
@@ -29,7 +29,7 @@ public class Produto  implements java.io.Serializable {
     }
 
 	
-    public Produto(long codbarras, Cor cor, Marca marca, Tamanho tamanho, Tipoproduto tipoproduto, String descricao, long precocompra, long precovenda, char genero) {
+    public Produto(long codbarras, Cor cor, Marca marca, Tamanho tamanho, Tipoproduto tipoproduto, String descricao, double precocompra, double precovenda, char genero) {
         this.codbarras = codbarras;
         this.cor = cor;
         this.marca = marca;
@@ -40,7 +40,7 @@ public class Produto  implements java.io.Serializable {
         this.precovenda = precovenda;
         this.genero = genero;
     }
-    public Produto(long codbarras, Cor cor, Marca marca, Tamanho tamanho, Tipoproduto tipoproduto, String descricao, long precocompra, long precovenda, char genero, Set<Produtovenda> produtovendas, Set<Produtoloja> produtolojas, Set<Produtoentrega> produtoentregas, Set<Caixa> caixas) {
+    public Produto(long codbarras, Cor cor, Marca marca, Tamanho tamanho, Tipoproduto tipoproduto, String descricao, double precocompra, double precovenda, char genero, Set<Produtovenda> produtovendas, Set<Produtoloja> produtolojas, Set<Produtoentrega> produtoentregas, Set<Caixa> caixas) {
        this.codbarras = codbarras;
        this.cor = cor;
        this.marca = marca;
@@ -98,18 +98,18 @@ public class Produto  implements java.io.Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public long getPrecocompra() {
+    public double getPrecocompra() {
         return this.precocompra;
     }
     
-    public void setPrecocompra(long precocompra) {
+    public void setPrecocompra(double precocompra) {
         this.precocompra = precocompra;
     }
-    public long getPrecovenda() {
+    public double getPrecovenda() {
         return this.precovenda;
     }
     
-    public void setPrecovenda(long precovenda) {
+    public void setPrecovenda(double precovenda) {
         this.precovenda = precovenda;
     }
     public char getGenero() {

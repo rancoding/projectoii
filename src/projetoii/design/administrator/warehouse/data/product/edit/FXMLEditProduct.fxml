@@ -29,8 +29,9 @@
       <TextField fx:id="sellPriceText" alignment="CENTER_RIGHT" layoutX="440.0" layoutY="183.0" prefWidth="150.0" text="30€" />
       <Pane layoutY="220.0" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #E2E2E2;">
          <children>
-            <Button layoutX="380.0" layoutY="18.0" mnemonicParsing="false" prefWidth="100.0" text="ALTERAR" />
-            <Button layoutX="490.0" layoutY="18.0" mnemonicParsing="false" prefWidth="100.0" text="CANCELAR" />
+            <Button fx:id="updateButton" layoutX="380.0" layoutY="18.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefWidth="100.0" text="ALTERAR" />
+            <Button fx:id="CancelButton" layoutX="490.0" layoutY="18.0" mnemonicParsing="false" onAction="#onCancelClick" prefWidth="100.0" text="CANCELAR" />
+            <Label fx:id="errorLabel" layoutX="14.0" layoutY="22.0" prefWidth="250.0" textFill="#b57070" />
          </children>
       </Pane>
       <ComboBox layoutX="530.0" layoutY="10.0" prefWidth="60.0" promptText="PT" />

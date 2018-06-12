@@ -35,6 +35,8 @@ public class Projetoii extends Application {
        Parent root = FXMLLoader.load(getClass().getResource("FXMLAccountType.fxml"));
        //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/menu/top/FXMLAdministratorTopMenu.fxml"));
        // Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/list/FXMLListProduct.fxml"));
+       // Parent root = FXMLLoader.load(getClass().getResource("design/administrator/menu/top/FXMLAdministratorTopMenu.fxml"));
+       //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/list/FXMLListProduct.fxml"));
        // Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/product/add/FXMLAddProduct.fxml"));
 
         //Parent root = FXMLLoader.load(getClass().getResource("design/administrator/warehouse/data/category/list/FXMLListCategory.fxml"));

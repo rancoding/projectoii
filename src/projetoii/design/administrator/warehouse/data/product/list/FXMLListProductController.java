@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.hibernate.Session;
 import org.apache.commons.lang3.StringUtils;
+import projetoii.design.administrator.warehouse.box.list.FXMLListBoxController;
 import projetoii.design.administrator.warehouse.data.product.add.FXMLAddProductController;
 import projetoii.design.administrator.warehouse.data.product.detail.FXMLProductDetailController;
 import projetoii.design.administrator.warehouse.data.product.edit.FXMLEditProductController;
@@ -73,13 +74,20 @@ public class FXMLListProductController implements Initializable {
         /* Retrieves all database product types to an arraylist and initializes the table values if it is not empty */
         List<Produto> productList = session.createCriteria(Produto.class).list();
         
+        
+        
         if(!(productList.isEmpty()))
         {
             initializeTable(productList);
         }
+        else
+        {
+            productList = new ArrayList<Produto>();
+            initializeTable(productList);
+        }
         
         /* Closes the database connection */
-        //session.close();
+       // session.close();
         
         
     }    
@@ -198,7 +206,7 @@ public class FXMLListProductController implements Initializable {
                             /* On edit button, opens an edit category window with the row category info and the list of existent categories */
                             button.setOnAction((event) -> {
                                 Produto type = getTableView().getItems().get(getIndex());
-                                loadNewEditWindow(FXMLEditProductController.class, "FXMLEditProduct.fxml", "Armazém - Editar Produto", "Não foi possível carregar o ficheiro FXMLEditProduct.fxml", type);
+                                loadNewBoxWindow(FXMLListBoxController.class, "FXMLListBox.fxml", "Armazém - Editar Produto", "Não foi possível carregar o ficheiro FXMLListBox.fxml", type);
                             });
                             
                             setGraphic(button);
@@ -310,6 +318,10 @@ public class FXMLListProductController implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(controller.getResource(fileName));
             Parent root = (Parent) loader.load();
+            
+             FXMLAddProductController addController = (FXMLAddProductController) loader.getController();
+            addController.initializeOnControllerCall(this, productObservableList);
+            
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(root));
@@ -331,6 +343,28 @@ public class FXMLListProductController implements Initializable {
             
             FXMLEditProductController editController = (FXMLEditProductController) loader.getController();
             editController.initializeOnControllerCall(this, productObservableList, type);
+            
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+        catch(Exception e)
+        {
+            System.out.println(message);
+        }
+    }
+    
+    /* * Loads a new edit window * */
+    private void loadNewBoxWindow(Class controller, String fileName, String title, String message, Produto type)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(controller.getResource(fileName));
+            Parent root = (Parent) loader.load();
+            
+            FXMLListBoxController listController = (FXMLListBoxController) loader.getController();
+            listController.initializeOnControllerCall(this, productObservableList, type);
             
             Stage stage = new Stage();
             stage.setTitle(title);
@@ -405,11 +439,11 @@ public class FXMLListProductController implements Initializable {
     }
     
     /* * Sets new table values * */
-    private void setSearchedTableValues(List<Produto> typeList)
+    public void setSearchedTableValues(List<Produto> productList)
     {
-        ObservableList<Produto> typeObservableList;
-        typeObservableList = FXCollections.observableArrayList(typeList);
-        setTableItems(typeObservableList);
+        ObservableList<Produto> productObservableList;
+        productObservableList = FXCollections.observableArrayList(productList);
+        setTableItems(productObservableList);
     }
    
 }

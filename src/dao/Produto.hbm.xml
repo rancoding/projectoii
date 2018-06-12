@@ -23,10 +23,10 @@
         <property name="descricao" type="string">
             <column name="DESCRICAO" length="50" not-null="true" />
         </property>
-        <property name="precocompra" type="long">
+        <property name="precocompra" type="double">
             <column name="PRECOCOMPRA" precision="10" scale="0" not-null="true" />
         </property>
-        <property name="precovenda" type="long">
+        <property name="precovenda" type="double">
             <column name="PRECOVENDA" precision="10" scale="0" not-null="true" />
         </property>
         <property name="genero" type="char">

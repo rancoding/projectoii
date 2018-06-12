@@ -1,5 +1,6 @@
 package projetoii.design.administrator.warehouse.data.category.add;
 
+import dao.Cor;
 import dao.Tipoproduto;
 import hibernate.HibernateUtil;
 import java.net.URL;
@@ -17,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import projetoii.design.administrator.warehouse.data.category.list.FXMLListCategoryController;
+import projetoii.design.administrator.warehouse.data.product.add.FXMLAddProductController;
 
 public class FXMLAddCategoryController implements Initializable {
     
@@ -24,6 +26,7 @@ public class FXMLAddCategoryController implements Initializable {
     @FXML private Button addCategoryButton;
     @FXML private Label errorLabel;
     
+    private FXMLAddProductController addProductController;
     private FXMLListCategoryController listCategoryController;
     private ObservableList<Tipoproduto> productTypeList;
     
@@ -32,6 +35,18 @@ public class FXMLAddCategoryController implements Initializable {
     {
         addCategoryButton.setDisable(true);
     }    
+    /* * Initializes all variables when getting called from another controller * */
+    public void initializeOnAddProductControllerCall(FXMLAddProductController addProductController, ObservableList<Tipoproduto> typeList)
+    {
+        setListAddProductController(addProductController);
+        setObservableList(typeList);
+    }
+    
+    /* * Sets list controller * */
+    private void setListAddProductController(FXMLAddProductController addProductController)
+    {
+        this.addProductController = addProductController;
+    }
     
     /* * Initializes all variables when getting called from another controller * */
     public void initializeOnControllerCall(FXMLListCategoryController listCategoryController, ObservableList<Tipoproduto> productTypeList)
@@ -68,6 +83,10 @@ public class FXMLAddCategoryController implements Initializable {
         {
             this.listCategoryController.setSearchedTableValues(productTypeList);
             this.listCategoryController.categoryTable.refresh();
+        }
+        else if(this.addProductController != null)
+        {
+            this.addProductController.typeComboBox.getSelectionModel().select(productTypeList.size()-1);
         }
         
         closeStage(event);

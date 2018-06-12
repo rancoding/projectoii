@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import projetoii.design.administrator.warehouse.data.brand.list.FXMLListBrandController;
+import projetoii.design.administrator.warehouse.data.product.add.FXMLAddProductController;
 
 public class FXMLAddBrandController implements Initializable {
    
@@ -24,6 +25,8 @@ public class FXMLAddBrandController implements Initializable {
     @FXML private Button addBrandButton;
     @FXML private Label errorLabel;
     
+    
+    private FXMLAddProductController addProductController;
     private FXMLListBrandController listBrandController;
     private ObservableList<Marca> brandList;
     
@@ -38,6 +41,18 @@ public class FXMLAddBrandController implements Initializable {
     }    
  
     
+    /* * Initializes all variables when getting called from another controller * */
+    public void initializeOnAddProductControllerCall(FXMLAddProductController addProductController, ObservableList<Marca> brandList)
+    {
+        setListAddProductController(addProductController);
+        setObservableList(brandList);
+    }
+    
+    /* * Sets list controller * */
+    private void setListAddProductController(FXMLAddProductController addProductController)
+    {
+        this.addProductController = addProductController;
+    }
 
     /* * Initializes all variables when getting called from another controller * */
     public void initializeOnControllerCall(FXMLListBrandController listBrandController, ObservableList<Marca> brandList)
@@ -74,6 +89,10 @@ public class FXMLAddBrandController implements Initializable {
         {
             this.listBrandController.setSearchedTableValues(brandList);
             this.listBrandController.brandTable.refresh();
+        } 
+        else if(this.addProductController != null)
+        {
+            this.addProductController.brandComboBox.getSelectionModel().select(brandList.size()-1);
         }
         
         closeStage(event);
